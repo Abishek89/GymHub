@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\PlanController;
+use App\Http\Controllers\Admin\trainerController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
@@ -44,3 +45,13 @@ Route::get('/addpayment', [AdminController::class, 'addpayment'])->name('addpaym
 
 //admin route for add product
 Route::get('/addproduct', [AdminController::class, 'addproduct'])->name('addproduct');
+
+//admin route for add expenses
+Route::get('/addexpenses', [AdminController::class, 'addexpenses'])->name('addexpenses');
+
+//admin route for add expenses
+Route::get('/addtrainers', [AdminController::class, 'trainers'])->name('addtrainers');
+Route::post('/addtrainers', [trainerController::class, 'addtrainers'])->name('addtrainers');
+
+//admin route for add expenses
+Route::get('/sendmessage', [AdminController::class, 'sendmessage'])->name('sendmessage');

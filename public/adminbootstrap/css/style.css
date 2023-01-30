@@ -19070,7 +19070,7 @@ body.avgrund-active {
     margin-bottom: 0; }
 
 /* Jquery File Upload */
-.ajax-upload-dragdrop {
+nput[type="file"]::file-selector-button {
   border-color: #2c2e33;
   border-style: dotted;
   max-width: 100%; }

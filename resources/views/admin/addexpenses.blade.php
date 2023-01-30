@@ -14,16 +14,16 @@
         <div class="col-12 grid-margin">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">Enter Details of Payment</h4>
+                <h4 class="card-title">Expenses Details</h4>
                 <form class="form-sample" action="" method="" >
                     @csrf
                   <p class="card-description"> Payment Details </p>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Payment Name</label>
+                        <label class="col-sm-3 col-form-label">Expenses Name</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="paymentname" placeholder="Name" />
+                          <input type="text" class="form-control" name="expensesname" placeholder="Name" />
                         </div>
                       </div>
                     </div>
@@ -31,7 +31,7 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Amount</label>
+                        <label class="col-sm-3 col-form-label"> Amount</label>
                         <div class="col-sm-9">
                           <input type="text" class="form-control" name="amount" placeholder="Rs" />
                         </div>
@@ -41,11 +41,22 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Mode</label>
+                        <label class="col-sm-3 col-form-label">Date</label>
+                        <div class="col-sm-9">
+                          <input class="form-control" placeholder="dd/mm/yyyy" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Expenses Type</label>
                         <div class="col-sm-9">
                           <select class="form-control" name="mode">
-                            <option>Cash</option>
-                            <option>Online Money Transfer</option>
+                            <option>Equipment</option>
+                            <option>Maintainence</option>
+                            <option>Others</option>
                           </select>
                         </div>
                       </div>

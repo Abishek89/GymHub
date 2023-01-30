@@ -15,7 +15,7 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Enter Details of Plan</h4>
-                <form class="form-sample" action="{{ route('createplan') }}" method="post" >
+                <form class="form-sample" action="{{ route('createplan') }}" method="POST" >
                     @csrf
                   <p class="card-description"> Plan Details </p>
                   <div class="row">

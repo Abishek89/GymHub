@@ -117,7 +117,7 @@
               <div class="collapse" id="expenses">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">All Expenses</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Add Expenses</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ url('addexpenses') }}">Add Expenses</a></li>
                 </ul>
               </div>
             </li>
@@ -132,7 +132,7 @@
               <div class="collapse" id="trainers">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">All Trainers</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Add Trainers</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ url('addtrainers') }}">Add Trainers</a></li>
                 </ul>
               </div>
             </li>
@@ -147,7 +147,7 @@
               <div class="collapse" id="messages">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Sechedule Message</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Send Message</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ url('sendmessage') }}">Send Message</a></li>
                 </ul>
               </div>
             </li>

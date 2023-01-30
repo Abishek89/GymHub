@@ -162,13 +162,15 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                @foreach ($plan as $plan ) 
+                {{-- @foreach ($plan as $plan )  --}}
                 <div class="col-lg-4 col-md-8">
                     <div class="ps-item">
-                        <h3>{{ $plan->planname }}</h3>
+                        {{-- <h3>{{ $plan->planname }}</h3> --}}
+                        <h3>package</h3>
                         <div class="pi-price">
-                            <h2>Rs {{ $plan->price }}</h2>
-                            <span>{{ $plan->package }}</span>
+                            <h2>$400</h2>
+                            {{-- <h2>Rs {{ $plan->price }}</h2> --}}
+                            {{-- <span>{{ $plan->package }}</span> --}}
                         </div>
                         <ul>
                             <li>Free riding</li>
@@ -181,7 +183,7 @@
                         <a href="#" class="primary-btn pricing-btn">Enroll now</a>
                     </div>
                 </div>
-                @endforeach
+                {{-- @endforeach --}}
             </div>
         </div>
     </section>
