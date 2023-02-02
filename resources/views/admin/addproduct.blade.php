@@ -1,47 +1,72 @@
 @extends('admin.layout.main')
 
 @section('content') 
-<div class="content-wrapper">
-    <div class="page-header">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page">Add Product</li>
-        </ol>
-      </nav>
-    </div>
-    <div class="col-10 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title">Add Products</h4>
-            <form class="forms-sample">
-              <div class="form-group">
-                <label for="exampleInputName1">Product Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Name">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword4">Price</label>
-                <input type="text" class="form-control" id="price" placeholder="Rs">
-              </div>
-              <div class="form-group">
-                <label>Product Image</label>
-                <input type="file" name="img[]" class="file-upload-default">
-                <div class="input-group col-xs-12">
-                  <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                  <span class="input-group-append">
-                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                  </span>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="exampleTextarea1">Product Description</label>
-                <textarea class="form-control" id="exampleTextarea1" rows="4" placeholder="Description"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary mr-2">Submit</button>
-              <button class="btn btn-dark">Cancel</button>
-            </form>
-          </div>
-        </div>
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="page-header">
+        <h3 class="page-title">Enter Details of Products</h3>
       </div>
-    </div>
-
+      <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <form class="form-sample" action="{{ route('addproduct') }}" method="POST" enctype="multipart/form-data" >
+                  @csrf
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Product Name</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="productname" placeholder="Name" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Price</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="price" placeholder="RS" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Image</label>
+                        <div class="col-sm-9">
+                          <input type="file" id="myFile" name="image">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Description</label>
+                        <div class="col-sm-9">
+                          <textarea type="text" class="form-control" name="description" placeholder="Description"  rows="5"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                  <div class="col-md-6">
+                  </div>
+                  </div>
+                  <div class="row">
+                  <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary mr-1">Submit</button>
+                  <button class="btn btn-dark">Cancel</button>
+                  </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+      </div>
+      </div>
+</div>
   @endsection

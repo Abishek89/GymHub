@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Plan;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -31,8 +32,9 @@ class FrontendController extends Controller
     }
 
     public function services(){
-        return view('frontend.services');
-    
+        $plan=Plan::all();
+        return view('frontend.services', compact('plan'));
+
     }
 
     public function shop(){

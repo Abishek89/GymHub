@@ -1,23 +1,17 @@
 @extends('admin.layout.main')
 
 @section('content') 
+<div class="main-panel">
     <div class="content-wrapper">
       <div class="page-header">
-        <h3 class="page-title"> Payment </h3>
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">Add Payment</li>
-          </ol>
-        </nav>
+        <h3 class="page-title"> Payment Details </h3>
       </div>
       <div class="row">
         <div class="col-12 grid-margin">
             <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Enter Details of Payment</h4>
-                <form class="form-sample" action="" method="" >
+              <div class="card-body">              
+                <form class="form-sample" action="{{ route('addpayment') }}" method="POST" >
                     @csrf
-                  <p class="card-description"> Payment Details </p>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
@@ -43,7 +37,7 @@
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Mode</label>
                         <div class="col-sm-9">
-                          <select class="form-control" name="mode">
+                          <select class="form-control" name="paymenttype">
                             <option>Cash</option>
                             <option>Online Money Transfer</option>
                           </select>
@@ -51,9 +45,16 @@
                       </div>
                     </div>
                   </div>
-
-                 
-                  
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Description</label>
+                        <div class="col-sm-9">
+                          <textarea type="text" class="form-control" name="description" placeholder="Description"  rows="5"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div class="row">
                   <div class="col-sm-10">
                   <button type="submit" class="btn btn-primary mr-1">Submit</button>
@@ -66,5 +67,5 @@
           </div>
       </div>
       </div>
-    
+</div>
   @endsection

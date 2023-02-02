@@ -2,26 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Expenses;
+use App\Models\Payment;
+use App\Models\Products;
 use App\Models\Trainer;
 
 class AdminController extends Controller
 {
-    public function plan(){
-        return view('admin.createplan');
+
+    public function dashboard(){
+        
+        return view('admin.admindashboard');
     }
 
-    public function addpayment(){
-
+    public function payment(){
+        $payment=Payment::all();
         return view('admin.addpayment');
     }
 
-    public function addproduct(){
-        
+    public function product(){
+        $products=Products::all();
         return view('admin.addproduct');
     }
 
-    public function addexpenses(){
-        
+    public function expenses(){
+        $expenses=Expenses::all();
         return view('admin.addexpenses');
     }
  

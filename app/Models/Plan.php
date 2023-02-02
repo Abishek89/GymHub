@@ -10,4 +10,6 @@ class Plan extends Model
     use HasFactory;
 
     protected $table = 'plan';
+    
+    protected $primaryKey = "id";
 }

@@ -1,23 +1,17 @@
 @extends('admin.layout.main')
 
 @section('content') 
+<div class="main-panel">
     <div class="content-wrapper">
       <div class="page-header">
-        <h3 class="page-title"> Payment </h3>
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">Add Payment</li>
-          </ol>
-        </nav>
+        <h3 class="page-title"> Expenses Details </h3>
       </div>
       <div class="row">
         <div class="col-12 grid-margin">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">Expenses Details</h4>
-                <form class="form-sample" action="" method="" >
-                    @csrf
-                  <p class="card-description"> Payment Details </p>
+                <form class="form-sample" action="{{ route('addexpenses') }}" method="POST"  >
+                  @csrf
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
@@ -43,7 +37,7 @@
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Date</label>
                         <div class="col-sm-9">
-                          <input class="form-control" placeholder="dd/mm/yyyy" />
+                          <input class="form-control" name="date"   placeholder="dd/mm/yyyy" />
                         </div>
                       </div>
                     </div>
@@ -53,7 +47,7 @@
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Expenses Type</label>
                         <div class="col-sm-9">
-                          <select class="form-control" name="mode">
+                          <select class="form-control" name="expensestype">
                             <option>Equipment</option>
                             <option>Maintainence</option>
                             <option>Others</option>
@@ -62,9 +56,6 @@
                       </div>
                     </div>
                   </div>
-
-                 
-                  
                   <div class="row">
                   <div class="col-sm-10">
                   <button type="submit" class="btn btn-primary mr-1">Submit</button>
@@ -77,5 +68,6 @@
           </div>
       </div>
       </div>
+</div>
     
   @endsection

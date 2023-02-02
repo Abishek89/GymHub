@@ -28,9 +28,7 @@ class HomeController extends Controller
        if(Auth::user()->role==0){
            return view('admin/admindashboard');}
        else{
-           $plan=Plan::all();
+        $plan=Plan::all();
         return view('frontend.index', compact('plan'));
     }}
-
-    
 }

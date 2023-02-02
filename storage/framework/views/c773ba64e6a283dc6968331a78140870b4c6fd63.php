@@ -159,29 +159,41 @@
                     </div>
                 </div>
             </div>
+            <?php
+                $plan=DB::table('plan')->get();
+            ?>
             <div class="row justify-content-center">
-                
+                <?php $__currentLoopData = $plan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $plan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
                 <div class="col-lg-4 col-md-8">
                     <div class="ps-item">
-                        
-                        <h3>package</h3>
+                        <h3><?php echo e($plan->planname); ?></h3>
                         <div class="pi-price">
-                            <h2>$400</h2>
-                            
-                            
+                            <h2>Rs <?php echo e($plan->price); ?></h2>
+                            <span><?php echo e($plan->package); ?></span>
                         </div>
                         <ul>
-                            <li>Free riding</li>
-                            <li>Unlimited equipments</li>
-                            <li>Personal trainer</li>
-                            <li>Weight losing classes</li>
-                            <li>Month to mouth</li>
-                            <li>No time restriction</li>
+                            <li>Unlimited equipments <?php if(
+                                $plan->equipment==1): ?>
+                                ✅
+                                <?php else: ?> ❌
+                            <?php endif; ?></li>
+                            <li>Personal trainer <?php if(
+                                $plan->trainer==1): ?>
+                                ✅   
+                            <?php else: ?> ❌ 
+                            <?php endif; ?></li>
+                            <li>Admission Fee <?php if(
+                                $plan->admission==1): ?>
+                                ✅
+                            <?php else: ?> ❌
+                            <?php endif; ?>
+
+                            </li>
                         </ul>
                         <a href="#" class="primary-btn pricing-btn">Enroll now</a>
                     </div>
                 </div>
-                
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
     </section>

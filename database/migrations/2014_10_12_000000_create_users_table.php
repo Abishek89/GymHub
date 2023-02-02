@@ -27,7 +27,7 @@ return new class extends Migration
         DB::table('users')->insert(
             array(
                 'name'=>'Abishek Bhattarai',
-                'email'=>'admin@gmail.com',
+                'email'=>'abishekbhattarai81@gmail.com',
                 'role'=>'0',
                 'password'=>bcrypt('password')
             )

@@ -1,23 +1,17 @@
 @extends('admin.layout.main')
 
 @section('content') 
+<div class="main-panel">
     <div class="content-wrapper">
       <div class="page-header">
-        <h3 class="page-title"> Form elements </h3>
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">Add Trainer</li>
-          </ol>
-        </nav>
+        <h3 class="page-title">Enter Details of Trainers</h3>
       </div>
       <div class="row">
         <div class="col-12 grid-margin">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">Enter Details of Trainer</h4>
                 <form class="form-sample" action="{{ route('addtrainers') }}" method="POST" enctype="multipart/form-data" >
                   @csrf
-                  <p class="card-description"> Trainer Details </p>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
@@ -107,5 +101,5 @@
           </div>
       </div>
       </div>
-    
+</div>
   @endsection

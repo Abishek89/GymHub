@@ -161,29 +161,41 @@
                     </div>
                 </div>
             </div>
+            @php
+                $plan=DB::table('plan')->get();
+            @endphp
             <div class="row justify-content-center">
-                {{-- @foreach ($plan as $plan )  --}}
+                @foreach ($plan as $plan ) 
                 <div class="col-lg-4 col-md-8">
                     <div class="ps-item">
-                        {{-- <h3>{{ $plan->planname }}</h3> --}}
-                        <h3>package</h3>
+                        <h3>{{ $plan->planname }}</h3>
                         <div class="pi-price">
-                            <h2>$400</h2>
-                            {{-- <h2>Rs {{ $plan->price }}</h2> --}}
-                            {{-- <span>{{ $plan->package }}</span> --}}
+                            <h2>Rs {{ $plan->price }}</h2>
+                            <span>{{ $plan->package }}</span>
                         </div>
                         <ul>
-                            <li>Free riding</li>
-                            <li>Unlimited equipments</li>
-                            <li>Personal trainer</li>
-                            <li>Weight losing classes</li>
-                            <li>Month to mouth</li>
-                            <li>No time restriction</li>
+                            <li>Unlimited equipments @if (
+                                $plan->equipment==1)
+                                ✅
+                                @else ❌
+                            @endif</li>
+                            <li>Personal trainer @if (
+                                $plan->trainer==1)
+                                ✅   
+                            @else ❌ 
+                            @endif</li>
+                            <li>Admission Fee @if (
+                                $plan->admission==1)
+                                ✅
+                            @else ❌
+                            @endif
+
+                            </li>
                         </ul>
                         <a href="#" class="primary-btn pricing-btn">Enroll now</a>
                     </div>
                 </div>
-                {{-- @endforeach --}}
+                @endforeach
             </div>
         </div>
     </section>
