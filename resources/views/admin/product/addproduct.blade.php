@@ -4,20 +4,20 @@
 <div class="main-panel">
     <div class="content-wrapper">
       <div class="page-header">
-        <h3 class="page-title">Enter Details of Trainers</h3>
+        <h3 class="page-title">Enter Details of Products</h3>
       </div>
       <div class="row">
         <div class="col-12 grid-margin">
             <div class="card">
               <div class="card-body">
-                <form class="form-sample" action="{{ route('addtrainers') }}" method="POST" enctype="multipart/form-data" >
+                <form class="form-sample" action="{{ route('addproduct') }}" method="POST" enctype="multipart/form-data" >
                   @csrf
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Trainer Name</label>
+                        <label class="col-sm-3 col-form-label">Product Name</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="trainername" placeholder="Name" />
+                          <input type="text" class="form-control" name="productname" placeholder="Name" />
                         </div>
                       </div>
                     </div>
@@ -25,12 +25,9 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Gender</label>
+                        <label class="col-sm-3 col-form-label">Price</label>
                         <div class="col-sm-9">
-                          <select class="form-control" name="gender">
-                            <option>Male</option>
-                            <option>Female</option>
-                          </select>
+                          <input type="text" class="form-control" name="price" placeholder="RS" />
                         </div>
                       </div>
                     </div>
@@ -48,29 +45,9 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Weight</label>
+                        <label class="col-sm-3 col-form-label">Quantity</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="weight" placeholder="Kg" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Height</label>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" name="height" placeholder="feet" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Age</label>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" name="age" placeholder="Age" />
+                          <input type="text" class="form-control" name="quantity" placeholder="quantity" />
                         </div>
                       </div>
                     </div>
@@ -84,10 +61,6 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
-                  <div class="col-md-6">
-                  </div>
                   </div>
                   <div class="row">
                   <div class="col-sm-10">

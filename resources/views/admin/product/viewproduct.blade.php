@@ -1,0 +1,56 @@
+@extends('admin.layout.main')
+
+@section('content') 
+<div class="main-panel">
+    <div class="content-wrapper">
+      <div class="page-header">
+        <h3 class="page-title">Available Product</h3>
+        <a href="{{ url('/viewproduct/addproduct') }}" class="btn btn-primary">Add New Product</a>
+      </div>
+      <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+              <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                          <thead>
+                            <tr>
+                              <th> Product Id </th>
+                              <th> Product Name </th>
+                              <th> Price </th>
+                              <th> Image </th>
+                              <th> Descripton </th>
+                              <th> Update </th>
+                              <th> Delete </th>
+                            </tr>
+                          </thead>
+                          @php
+                            $products=DB::table('products')->get();
+                        @endphp
+                          <tbody>
+                            @foreach ($products as $products ) 
+                            <tr>
+                              <td>{{ $products->id }}</td>
+                              <td>{{ $products->productname }}</td>
+                              <td> Rs{{ $products->price }} </td>
+                              <td> <img src="{{ URL::to('/uploads/products/'.$products->image) }}" class="img-fluid"/> </td>
+                              <td> {{ $products->description }} </td>
+                            <td>
+                                <a href="" class="btn btn-primary">Update</a>
+                            </td>
+                            <td> 
+                              <a href="{{ route('delete', ['id' => $products->id])}}" class="btn btn-primary">Delete</a> 
+                            </td>
+                            </tr>
+                            @endforeach
+                          </tbody>
+                        </table>
+                      </div>
+                </form>
+              </div>
+            </div>
+          </div>
+      </div>
+      </div>
+</div>
+@endsection

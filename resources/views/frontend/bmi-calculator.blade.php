@@ -75,12 +75,6 @@
                                 <div class="col-sm-6">
                                     <input type="text" placeholder="Weight / kg">
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type="text" placeholder="Age">
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="text" placeholder="Sex">
-                                </div>
                                 <div class="col-lg-12">
                                     <button type="submit">Calculate</button>
                                 </div>

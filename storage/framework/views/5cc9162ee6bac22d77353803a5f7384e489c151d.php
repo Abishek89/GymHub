@@ -39,13 +39,12 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-6.1">
+                <div class="col-lg-6.9">
                     <nav class="nav-menu">
                         <ul>
                             <?php if(auth()->guard()->check()): ?>
                             <li class="active"><a href="<?php echo e(url('/')); ?>">Home</a></li>
                             <li><a href="<?php echo e(url('aboutus')); ?>">About Us</a></li>
-                            <li><a href="<?php echo e(url('class-details')); ?>">Classes</a></li>
                             <li><a href="<?php echo e(url('services')); ?>">Services</a></li>
                             <li><a href="<?php echo e(url('shop')); ?>">Shop</a></li>
                             <li><a href="<?php echo e(url('team')); ?>">Our Team</a></li>

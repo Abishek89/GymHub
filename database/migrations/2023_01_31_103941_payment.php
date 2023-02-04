@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('payment', function (Blueprint $table) {
             $table->id();
             $table->string('paymentname');
-            $table->string('amount');
+            $table->double('amount');
             $table->string('paymenttype');
-            $table->string('description');
+            $table->string('paymentby');
             $table->timestamps();           
         }); 
     }

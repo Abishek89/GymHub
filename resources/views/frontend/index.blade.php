@@ -149,7 +149,7 @@
         </div>
     </section>
     <!-- speciality Section End -->
-@auth
+
     <!-- Pricing Section Begin -->
     <section class="pricing-section spad">
         <div class="container">
@@ -171,7 +171,15 @@
                         <h3>{{ $plan->planname }}</h3>
                         <div class="pi-price">
                             <h2>Rs {{ $plan->price }}</h2>
-                            <span>{{ $plan->package }}</span>
+                            <span>@if (
+                                $plan->package==0)
+                                Monthly Packages
+                                @elseif(
+                                  $plan->package==1)
+                                  Annual Packages
+                                @else
+                                Life Time Membership
+                            @endif</span>
                         </div>
                         <ul>
                             <li>Unlimited equipments @if (
@@ -192,7 +200,9 @@
 
                             </li>
                         </ul>
+                        @auth
                         <a href="#" class="primary-btn pricing-btn">Enroll now</a>
+                        @endauth
                     </div>
                 </div>
                 @endforeach
@@ -200,9 +210,18 @@
         </div>
     </section>
     <!-- Pricing Section End -->
-@endauth
+
+
     <!-- Gallery Section Begin -->
     <div class="gallery-section">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <span>Gym Photos</span>
+                    <h2>COLLECTIONS OF GYM PHOTOS</h2>
+                </div>
+            </div>
+        </div>
         
         <div class="gallery">
             <div class="grid-sizer"></div>
@@ -227,76 +246,36 @@
         </div>
     </div>
     <!-- Gallery Section End -->
-@auth
+
     <!-- Team Section Begin -->
+    @php
+        $trainer=DB::table('trainer')->get();
+    @endphp
     <section class="team-section spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="team-title">
-                        <div class="section-title">
-                            <span>Our Team</span>
-                            <h2>TRAIN WITH EXPERTS</h2>
-                        </div>
-                        <a href="{{ url('/login') }}" class="primary-btn btn-normal appoinment-btn">appointment</a>
+                    <div class="section-title">
+                        <span>Our Team</span>
+                        <h2>TRAIN WITH EXPERTS</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="ts-slider owl-carousel">
+                    @foreach ($trainer as $member )
                     <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-1.jpg">
+                        <div class="ts-item set-bg" data-setbg="{{ URL::to('/uploads/trainers/'.$member->image) }}">
                             <div class="ts_text">
-                                <h4>Athart Rachel</h4>
+                                <h4>{{ $member->trainername }}</h4>
                                 <span>Gym Trainer</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-2.jpg">
-                            <div class="ts_text">
-                                <h4>Athart Rachel</h4>
-                                <span>Gym Trainer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-3.jpg">
-                            <div class="ts_text">
-                                <h4>Athart Rachel</h4>
-                                <span>Gym Trainer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-4.jpg">
-                            <div class="ts_text">
-                                <h4>Athart Rachel</h4>
-                                <span>Gym Trainer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-5.jpg">
-                            <div class="ts_text">
-                                <h4>Athart Rachel</h4>
-                                <span>Gym Trainer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-6.jpg">
-                            <div class="ts_text">
-                                <h4>Athart Rachel</h4>
-                                <span>Gym Trainer</span>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </section>
     <!-- Team Section End -->
-    
-    @endauth
    @endsection

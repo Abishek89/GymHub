@@ -43,19 +43,26 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-9">
                       <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Expenses Type</label>
-                        <div class="col-sm-9">
-                          <select class="form-control" name="expensestype">
-                            <option>Equipment</option>
-                            <option>Maintainence</option>
-                            <option>Others</option>
-                          </select>
+                          <label class="col-sm-2 col-form-label">Expenses Type</label>
+                          <div class="col-sm-4">
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="expensestype" id="membershipRadios1" value="0" checked  /> Equipment </label>
+                            </div>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="expensestype" id="membershipRadios2" value="1" /> Maintainence </label>
+                            </div>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="expensestype" id="membershipRadios2" value="2" /> Others </label>
+                            </div>
+                          </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
+                    </div>
                   <div class="row">
                   <div class="col-sm-10">
                   <button type="submit" class="btn btn-primary mr-1">Submit</button>

@@ -70,79 +70,44 @@
               </a>
             </li>
             <li class="nav-item menu-items">
-              <a class="nav-link" data-toggle="collapse" href="#payment" aria-expanded="false" aria-controls="payment">
+              <a class="nav-link" href="<?php echo e(url('viewpayment')); ?>">
                 <span class="menu-icon">
-                  <i class="mdi mdi-laptop"></i>
+                  <i class="mdi mdi-contacts"></i>
                 </span>
                 <span class="menu-title">Payment</span>
-                <i class="menu-arrow"></i>
               </a>
-              <div class="collapse" id="payment">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Payment Invoices</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('addpayment')); ?>">Add Payment</a></li>
-                </ul>
-              </div>
             </li>
             <li class="nav-item menu-items">
-              <a class="nav-link" data-toggle="collapse" href="#products" aria-expanded="false" aria-controls="products">
+              <a class="nav-link" href="<?php echo e(url('viewproduct')); ?>">
                 <span class="menu-icon">
-                  <i class="mdi mdi-laptop"></i>
+                  <i class="mdi mdi-contacts"></i>
                 </span>
                 <span class="menu-title">Products</span>
-                <i class="menu-arrow"></i>
               </a>
-              <div class="collapse" id="products">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('addproduct')); ?>">Add Product</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Manage Product</a></li>
-                </ul>
-              </div>
             </li>
             <li class="nav-item menu-items">
-              <a class="nav-link" data-toggle="collapse" href="#expenses" aria-expanded="false" aria-controls="expenses">
+              <a class="nav-link" href="<?php echo e(url('viewexpenses')); ?>">
                 <span class="menu-icon">
-                  <i class="mdi mdi-laptop"></i>
+                  <i class="mdi mdi-contacts"></i>
                 </span>
                 <span class="menu-title">Expenses</span>
-                <i class="menu-arrow"></i>
               </a>
-              <div class="collapse" id="expenses">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">All Expenses</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('addexpenses')); ?>">Add Expenses</a></li>
-                </ul>
-              </div>
             </li>
             <li class="nav-item menu-items">
-              <a class="nav-link" data-toggle="collapse" href="#trainers" aria-expanded="false" aria-controls="trainers">
+              <a class="nav-link" href="<?php echo e(url('viewtrainers')); ?>">
                 <span class="menu-icon">
-                  <i class="mdi mdi-laptop"></i>
+                  <i class="mdi mdi-contacts"></i>
                 </span>
                 <span class="menu-title">Trainers</span>
-                <i class="menu-arrow"></i>
               </a>
-              <div class="collapse" id="trainers">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">All Trainers</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('addtrainers')); ?>">Add Trainers</a></li>
-                </ul>
-              </div>
             </li>
             <li class="nav-item menu-items">
-              <a class="nav-link" data-toggle="collapse" href="#messages" aria-expanded="false" aria-controls="messages">
+              <a class="nav-link" href="<?php echo e(url('viewupload')); ?>">
                 <span class="menu-icon">
-                  <i class="mdi mdi-laptop"></i>
+                  <i class="mdi mdi-contacts"></i>
                 </span>
-                <span class="menu-title">Messages</span>
-                <i class="menu-arrow"></i>
+                <span class="menu-title">Gallery</span>
               </a>
-              <div class="collapse" id="messages">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Sechedule Message</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="<?php echo e(url('sendmessage')); ?>">Send Message</a></li>
-                </ul>
-              </div>
             </li>
           </ul>
         </nav>

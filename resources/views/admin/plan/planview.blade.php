@@ -5,7 +5,7 @@
     <div class="content-wrapper">
       <div class="page-header">
         <h3 class="page-title">Available plan</h3>
-        <a href="{{ url('/planview/create') }}" class="btn btn-primary">Add Plan</a>
+        <a href="{{ url('/planview/createplan') }}" class="btn btn-primary">Add Plan</a>
       </div>
       <div class="row">
         <div class="col-12 grid-margin">
@@ -34,7 +34,15 @@
                             <tr>
                               <td>{{ $plan->id }}</td>
                               <td>{{ $plan->planname }}</td>
-                              <td> {{ $plan->package }} </td>
+                              <td>@if (
+                                $plan->package==0)
+                                Monthly Packages
+                                @elseif(
+                                  $plan->package==1)
+                                  Annual Packages
+                                @else
+                                Life Time Membership
+                            @endif </td>
                               <td> Rs {{ $plan->price }} </td>
                               <td>@if (
                                 $plan->equipment==1)
@@ -52,7 +60,7 @@
                             @else ❌
                             @endif</td>
                             <td>
-                                <a href="{{ route('edit', ['id' => $plan->id])}}" class="btn btn-primary">Update</a>
+                                <a href="{{ route('editplan', ['id' => $plan->id])}}" class="btn btn-primary">Update</a>
                             </td>
                             <td> 
                               <a href="{{ route('delete', ['id' => $plan->id])}}" class="btn btn-primary">Delete</a> 

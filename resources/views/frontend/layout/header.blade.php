@@ -39,13 +39,12 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-6.1">
+                <div class="col-lg-6.9">
                     <nav class="nav-menu">
                         <ul>
                             @auth
                             <li class="active"><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ url('aboutus') }}">About Us</a></li>
-                            <li><a href="{{ url('class-details') }}">Classes</a></li>
                             <li><a href="{{ url('services') }}">Services</a></li>
                             <li><a href="{{ url('shop') }}">Shop</a></li>
                             <li><a href="{{ url('team') }}">Our Team</a></li>

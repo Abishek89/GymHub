@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
-    public function classdetails(){
-        return view('frontend.class-details');
-
-    }
 
     public function aboutus(){
         return view('frontend.aboutus');
@@ -32,8 +28,8 @@ class FrontendController extends Controller
     }
 
     public function services(){
-        $plan=Plan::all();
-        return view('frontend.services', compact('plan'));
+        // $plan=Plan::all();
+        return view('frontend.services',);
 
     }
 

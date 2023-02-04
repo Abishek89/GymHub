@@ -17,11 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('trainername');
             $table->string('image');
-            $table->string('gender');
-            $table->string('height');
-            $table->string('weight');
-            $table->string('age');
-            $table->string('description');
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('twitter')->nullable();
             $table->timestamps();           
         });
     }

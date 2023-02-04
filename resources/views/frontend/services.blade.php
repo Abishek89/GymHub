@@ -107,7 +107,15 @@
                         <h3>{{ $plan->planname }}</h3>
                         <div class="pi-price">
                             <h2>Rs {{ $plan->price }}</h2>
-                            <span>{{ $plan->package }}</span>
+                            <span>@if (
+                                $plan->package==0)
+                                Monthly Packages
+                                @elseif(
+                                  $plan->package==1)
+                                  Annual Packages
+                                @else
+                                Life Time Membership
+                            @endif </span>
                         </div>
                         <ul>
                             <li>Unlimited equipments @if (

@@ -147,7 +147,7 @@
         </div>
     </section>
     <!-- speciality Section End -->
-<?php if(auth()->guard()->check()): ?>
+
     <!-- Pricing Section Begin -->
     <section class="pricing-section spad">
         <div class="container">
@@ -169,7 +169,15 @@
                         <h3><?php echo e($plan->planname); ?></h3>
                         <div class="pi-price">
                             <h2>Rs <?php echo e($plan->price); ?></h2>
-                            <span><?php echo e($plan->package); ?></span>
+                            <span><?php if(
+                                $plan->package==0): ?>
+                                Monthly Packages
+                                <?php elseif(
+                                  $plan->package==1): ?>
+                                  Annual Packages
+                                <?php else: ?>
+                                Life Time Membership
+                            <?php endif; ?></span>
                         </div>
                         <ul>
                             <li>Unlimited equipments <?php if(
@@ -190,7 +198,9 @@
 
                             </li>
                         </ul>
+                        <?php if(auth()->guard()->check()): ?>
                         <a href="#" class="primary-btn pricing-btn">Enroll now</a>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -198,9 +208,18 @@
         </div>
     </section>
     <!-- Pricing Section End -->
-<?php endif; ?>
+
+
     <!-- Gallery Section Begin -->
     <div class="gallery-section">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <span>Gym Photos</span>
+                    <h2>COLLECTIONS OF GYM PHOTOS</h2>
+                </div>
+            </div>
+        </div>
         
         <div class="gallery">
             <div class="grid-sizer"></div>
@@ -225,77 +244,37 @@
         </div>
     </div>
     <!-- Gallery Section End -->
-<?php if(auth()->guard()->check()): ?>
+
     <!-- Team Section Begin -->
+    <?php
+        $trainer=DB::table('trainer')->get();
+    ?>
     <section class="team-section spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="team-title">
-                        <div class="section-title">
-                            <span>Our Team</span>
-                            <h2>TRAIN WITH EXPERTS</h2>
-                        </div>
-                        <a href="<?php echo e(url('/login')); ?>" class="primary-btn btn-normal appoinment-btn">appointment</a>
+                    <div class="section-title">
+                        <span>Our Team</span>
+                        <h2>TRAIN WITH EXPERTS</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="ts-slider owl-carousel">
+                    <?php $__currentLoopData = $trainer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $member): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-1.jpg">
+                        <div class="ts-item set-bg" data-setbg="<?php echo e(URL::to('/uploads/trainers/'.$member->image)); ?>">
                             <div class="ts_text">
-                                <h4>Athart Rachel</h4>
+                                <h4><?php echo e($member->trainername); ?></h4>
                                 <span>Gym Trainer</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-2.jpg">
-                            <div class="ts_text">
-                                <h4>Athart Rachel</h4>
-                                <span>Gym Trainer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-3.jpg">
-                            <div class="ts_text">
-                                <h4>Athart Rachel</h4>
-                                <span>Gym Trainer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-4.jpg">
-                            <div class="ts_text">
-                                <h4>Athart Rachel</h4>
-                                <span>Gym Trainer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-5.jpg">
-                            <div class="ts_text">
-                                <h4>Athart Rachel</h4>
-                                <span>Gym Trainer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-6.jpg">
-                            <div class="ts_text">
-                                <h4>Athart Rachel</h4>
-                                <span>Gym Trainer</span>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
             </div>
         </div>
     </section>
     <!-- Team Section End -->
-    
-    <?php endif; ?>
    <?php $__env->stopSection(); ?>
 <?php echo $__env->make('frontend.layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/abishek/Desktop/Workspace/GymHub/resources/views/frontend/index.blade.php ENDPATH**/ ?>

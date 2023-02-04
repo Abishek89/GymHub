@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use App\Models\Products;
@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function addproduct(Request $request){
+    public function store(Request $request){
         $products=new Products();
         $products->productname=$request->productname;
         if($request->hasfile('image'))
@@ -20,9 +20,19 @@ class ProductController extends Controller
             $products->image = $filename;
         }
         $products->price=$request->price;
-        $products->image=$request->image;
+        $products->quantity=$request->quantity;
         $products->description=$request->description;
         $products->save();
-        return redirect()->back();
+        return redirect('viewproduct');
+    }
+
+    public function create(){
+        $products=Products::all();
+        return view('admin.product.addproduct');
+    }
+
+    //get method to view the added plan
+     public function view(){
+        return view('admin.product.viewproduct');
     }
 }

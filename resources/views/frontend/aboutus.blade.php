@@ -125,69 +125,31 @@
     <!-- About US Section End -->
 
     <!-- Team Section Begin -->
+    @php
+        $trainer=DB::table('trainer')->get();
+    @endphp
     <section class="team-section spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="team-title">
-                        <div class="section-title">
-                            <span>Our Team</span>
-                            <h2>TRAIN WITH EXPERTS</h2>
-                        </div>
-                        <a href="#" class="primary-btn btn-normal appoinment-btn">appointment</a>
+                    <div class="section-title">
+                        <span>Our Team</span>
+                        <h2>TRAIN WITH EXPERTS</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="ts-slider owl-carousel">
+                    @foreach ($trainer as $member )
                     <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-1.jpg">
+                        <div class="ts-item set-bg" data-setbg="{{ URL::to('/uploads/trainers/'.$member->image) }}">
                             <div class="ts_text">
-                                <h4>Athart Rachel</h4>
+                                <h4>{{ $member->trainername }}</h4>
                                 <span>Gym Trainer</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-2.jpg">
-                            <div class="ts_text">
-                                <h4>Athart Rachel</h4>
-                                <span>Gym Trainer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-3.jpg">
-                            <div class="ts_text">
-                                <h4>Athart Rachel</h4>
-                                <span>Gym Trainer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-4.jpg">
-                            <div class="ts_text">
-                                <h4>Athart Rachel</h4>
-                                <span>Gym Trainer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-5.jpg">
-                            <div class="ts_text">
-                                <h4>Athart Rachel</h4>
-                                <span>Gym Trainer</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="ts-item set-bg" data-setbg="landbootstrap/img/team/team-6.jpg">
-                            <div class="ts_text">
-                                <h4>Athart Rachel</h4>
-                                <span>Gym Trainer</span>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

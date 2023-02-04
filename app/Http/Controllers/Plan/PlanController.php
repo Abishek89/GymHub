@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Plan;
 
 use App\Http\Controllers\Controller;
 use App\Models\Plan;
@@ -34,11 +34,9 @@ class PlanController extends Controller
     }
     //get method to show the createplan form
     public function create(){
-        $url = url('/planview/create');
         $plan = new Plan();
-        $title = "Enter details of Plan";
-        $data = compact('url', 'title', 'plan');
-        return view('admin.plan.create')->with($data);
+        $data = compact( 'plan');
+        return view('admin.plan.createplan')->with($data);
     }
 
     //get method to view the added plan
@@ -56,20 +54,15 @@ class PlanController extends Controller
         return redirect('planview');
     }
 
+
+
     public function edit($id)
     {
         $plan = Plan::find($id);
-        if (is_null($plan)) {
-            return redirect('planview');
-        } else {
-            $title = "Update details of plan";
-            $url = url('/planview/update') . "/" . $id;
-            $data = compact('plan' , 'url' , 'title');
-            return view('admin.plan.create')->with($data);
-        }
+        return view('admin.plan.editplan', compact('plan'));
     }
 
-    public function update($id, Request  $request)
+    public function update(Request $request, $id)
     {
         $plan = Plan::find($id);
         $plan->planname=$request->planname;
@@ -78,7 +71,8 @@ class PlanController extends Controller
         $plan->equipment=$request->equipment;
         $plan->admission=$request->admission;
         $plan->trainer=$request->trainer;
-        $plan->save();
-        return redirect('/planview');
+        $plan->update();
+
+        return redirect('planview')->with('success', 'plan added successfully.');
     }
 }

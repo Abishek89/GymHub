@@ -4,20 +4,20 @@
 <div class="main-panel">
     <div class="content-wrapper">
       <div class="page-header">
-        <h3 class="page-title">{{ $title }}</h3>
+        <h3 class="page-title">Enter details of the Plan</h3>
       </div>
       <div class="row">
         <div class="col-12 grid-margin">
             <div class="card">
               <div class="card-body">
-                <form class="form-sample" action="{{ $url }}" method="POST" >
+                <form class="form-sample" action="{{ route('createplan') }}" method="POST" >
                     @csrf
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Plan Name</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="planname" placeholder="Name" value="{{ $plan->planname }}"/>
+                          <input type="text" class="form-control" name="planname" placeholder="Name"/>
                           <span class="text-danger">
                             @error('planname')
                               {{ $message }}
@@ -28,38 +28,21 @@
                     </div>
                   </div>
                   <div class="row">
-                  </div>
-                  {{-- <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Package</label>
-                        <div class="col-sm-9">
-                          <select class="form-control" name="package" >
-                            <option>Monthly Packages</option>
-                            <option>Annual Packages</option>
-                            <option>Life Time Membership</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </div> --}}
-                  <div class="row">
                     <div class="col-md-9">
                       <div class="form-group row">
                           <label class="col-sm-2 col-form-label">Package</label>
                           <div class="col-sm-4">
                             <div class="form-check">
                               <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="package" id="membershipRadios1" value="0" checked {{ $plan->package == "0" ? "checked" : "" }} 
-                                /> Monthly Packages </label>
+                                <input type="radio" class="form-check-input" name="package" id="membershipRadios1" value="0" checked  /> Monthly Packages </label>
                             </div>
                             <div class="form-check">
                               <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="package" id="membershipRadios2" value="1" {{ $plan->package == "1" ? "checked" : "" }}/> Annual Packages </label>
+                                <input type="radio" class="form-check-input" name="package" id="membershipRadios2" value="1" /> Annual Packages </label>
                             </div>
                             <div class="form-check">
                               <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="package" id="membershipRadios2" value="2" {{ $plan->package == "2" ? "checked" : "" }}/> Life Time Membership </label>
+                                <input type="radio" class="form-check-input" name="package" id="membershipRadios2" value="2" /> Life Time Membership </label>
                             </div>
                           </div>
                         </div>
@@ -71,7 +54,7 @@
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Price</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="price" placeholder="Rs" value="{{ $plan->price }}" />
+                          <input type="text" class="form-control" name="price" placeholder="Rs"  />
                           <span class="text-danger">
                             @error('price')
                               {{ $message }}
@@ -88,14 +71,13 @@
                         <div class="col-sm-4">
                           <div class="form-check">
                             <label class="form-check-label">
-                              <input type="radio" class="form-check-input" name="equipment" id="membershipRadios1" value="1" checked {{ $plan->equipment == "1" ? "checked" : "" }} 
-                              /> Yes </label>
+                              <input type="radio" class="form-check-input" name="equipment" id="membershipRadios1" value="1" checked  /> Yes </label>
                           </div>
                         </div>
                         <div class="col-sm-5">
                           <div class="form-check">
                             <label class="form-check-label">
-                              <input type="radio" class="form-check-input" name="equipment" id="membershipRadios2" value="0" {{ $plan->equipment == "0" ? "checked" : "" }}/> No </label>
+                              <input type="radio" class="form-check-input" name="equipment" id="membershipRadios2" value="0" /> No </label>
                           </div>
                         </div>
                       </div>
@@ -108,13 +90,13 @@
                       <div class="col-sm-4">
                         <div class="form-check">
                           <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="admission" id="membershipRadios1" value="1" checked {{ $plan->admission == "1" ? "checked" : "" }}/> Yes </label>
+                            <input type="radio" class="form-check-input" name="admission" id="membershipRadios1" value="1" checked /> Yes </label>
                         </div>
                       </div>
                       <div class="col-sm-5">
                         <div class="form-check">
                           <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="admission" id="membershipRadios2" value="0" {{ $plan->admission == "0" ? "checked" : "" }}/> No </label>
+                            <input type="radio" class="form-check-input" name="admission" id="membershipRadios2" value="0" /> No </label>
                         </div>
                       </div>
                     </div>
@@ -127,13 +109,13 @@
                       <div class="col-sm-4">
                         <div class="form-check">
                           <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="trainer" id="membershipRadios1" value="1" checked {{ $plan->trainer == "1" ? "checked" : "" }}/> Yes </label>
+                            <input type="radio" class="form-check-input" name="trainer" id="membershipRadios1" value="1" checked /> Yes </label>
                         </div>
                       </div>
                       <div class="col-sm-5">
                         <div class="form-check">
                           <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="trainer" id="membershipRadios2" value="0" {{ $plan->trainer == "0" ? "checked" : "" }}/> No </label>
+                            <input type="radio" class="form-check-input" name="trainer" id="membershipRadios2" value="0" /> No </label>
                         </div>
                       </div>
                     </div>
