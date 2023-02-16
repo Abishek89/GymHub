@@ -35,4 +35,41 @@ class ProductController extends Controller
      public function view(){
         return view('admin.product.viewproduct');
     }
+
+     //get method to delete the product
+     public function delete($id)
+     {
+         $products = Products::find($id);
+         if (!is_null($products)) {
+             $products->delete();
+         }
+         return redirect('viewproduct');
+     }
+
+     //method to edit the products
+     public function edit($id)
+     {
+         $products = Products::find($id);
+         return view('admin.product.editproduct', compact('products'));
+     }
+
+     //method to update the products
+     public function update(Request $request, $id)
+     {
+        $products = Products::find($id);
+        $products->productname=$request->productname;
+        if($request->hasfile('image'))
+        {
+            $file = $request->file('image');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('uploads/products/', $filename);
+            $products->image = $filename;
+        }
+        $products->price=$request->price;
+        $products->quantity=$request->quantity;
+        $products->description=$request->description;
+        $products->save();
+        return redirect('viewproduct');
+     }
 }

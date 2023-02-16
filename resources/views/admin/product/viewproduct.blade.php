@@ -36,10 +36,10 @@
                               <td> <img src="{{ URL::to('/uploads/products/'.$products->image) }}" class="img-fluid"/> </td>
                               <td> {{ $products->description }} </td>
                             <td>
-                                <a href="" class="btn btn-primary">Update</a>
+                                <a href="{{ route('editproduct', ['id' => $products->id])}}" class="btn btn-primary">Update</a>
                             </td>
                             <td> 
-                              <a href="{{ route('delete', ['id' => $products->id])}}" class="btn btn-primary">Delete</a> 
+                              <a href="{{ route('deleteproduct', ['id' => $products->id])}}" class="btn btn-primary">Delete</a> 
                             </td>
                             </tr>
                             @endforeach

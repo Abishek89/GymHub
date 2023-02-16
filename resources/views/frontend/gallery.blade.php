@@ -9,7 +9,7 @@
                     <div class="breadcrumb-text">
                         <h2>Gallery</h2>
                         <div class="bt-option">
-                            <a href="./index.html">Home</a>
+                            <a href="/home">Home</a>
                             <a href="#">Pages</a>
                             <span>Gallery</span>
                         </div>
@@ -21,36 +21,17 @@
     <!-- Breadcrumb Section End -->
 
     <!-- Gallery Section Begin -->
+    @php
+        $gallery=DB::table('gallery')->get();
+    @endphp
     <div class="gallery-section gallery-page">
         <div class="gallery">
+            @foreach ($gallery as $photo )
             <div class="grid-sizer"></div>
-            <div class="gs-item grid-wide set-bg" data-setbg="landbootstrap/img/gallery/gallery-1.jpg">
-                <a href="landbootstrap/img/gallery/gallery-1.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            <div class="gs-item grid-wide set-bg" data-setbg="{{ URL::to('/uploads/gallery/'.$photo->image) }}">
+                <a href="{{ URL::to('/uploads/gallery/'.$photo->image) }}" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
             </div>
-            <div class="gs-item set-bg" data-setbg="landbootstrap/img/gallery/gallery-2.jpg">
-                <a href="landbootstrap/img/gallery/gallery-2.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
-            <div class="gs-item set-bg" data-setbg="landbootstrap/img/gallery/gallery-3.jpg">
-                <a href="landbootstrap/img/gallery/gallery-3.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
-            <div class="gs-item set-bg" data-setbg="landbootstrap/img/gallery/gallery-4.jpg">
-                <a href="landbootstrap/img/gallery/gallery-4.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
-            <div class="gs-item set-bg" data-setbg="landbootstrap/img/gallery/gallery-5.jpg">
-                <a href="landbootstrap/img/gallery/gallery-5.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
-            <div class="gs-item grid-wide set-bg" data-setbg="landbootstrap/img/gallery/gallery-6.jpg">
-                <a href="landbootstrap/img/gallery/gallery-6.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
-            <div class="gs-item grid-wide set-bg" data-setbg="landbootstrap/img/gallery/gallery-7.jpg">
-                <a href="landbootstrap/img/gallery/gallery-7.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
-            <div class="gs-item set-bg" data-setbg="landbootstrap/img/gallery/gallery-8.jpg">
-                <a href="landbootstrap/img/gallery/gallery-8.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
-            <div class="gs-item set-bg" data-setbg="landbootstrap/img/gallery/gallery-9.jpg">
-                <a href="landbootstrap/img/gallery/gallery-9.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
+            @endforeach
         </div>
     </div>
     <!-- Gallery Section End -->

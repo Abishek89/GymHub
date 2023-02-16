@@ -28,6 +28,22 @@
             <a class="sidebar-brand brand-logo" href="<?php echo e(url('admindashboard')); ?>"><img src="/adminbootstrap/images/logo.png" alt="logo" /></a>
           </div>
           <ul class="nav">
+            <li class="nav-item profile">
+              <div class="profile-desc">
+                <div class="profile-pic">
+                  <div class="count-indicator">
+                    <img class="img-xs rounded-circle " src="/adminbootstrap/images/faces/face15.jpg" alt="">
+                    <span class="count bg-success"></span>
+                  </div>
+                  <div class="profile-name">
+                    <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
+                    <span>Admin</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item nav-category">
+            </li>
             <li class="nav-item menu-items">
               <a class="nav-link" href="<?php echo e(url('admindashboard')); ?>">
                 <span class="menu-icon">
@@ -127,7 +143,18 @@
                     </div>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+                    <h6 class="p-3 mb-0">Profile</h6>
                     <div class="dropdown-divider"></div>
+                    <a class="dropdown-item preview-item">
+                      <div class="preview-thumbnail">
+                        <div class="preview-icon bg-dark rounded-circle">
+                          <i class="mdi mdi-settings text-success"></i>
+                        </div>
+                      </div>
+                      <div class="preview-item-content">
+                        <p class="preview-subject mb-1">Account Settings</p>
+                      </div>
+                    </a>
                     <a href="<?php echo e(route('logout')); ?>" class="dropdown-item preview-item" onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                       <div class="preview-thumbnail">

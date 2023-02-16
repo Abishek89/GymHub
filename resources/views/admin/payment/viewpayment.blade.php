@@ -5,7 +5,7 @@
     <div class="content-wrapper">
       <div class="page-header">
         <h3 class="page-title">Payment Details</h3>
-        <a href="{{ url('/viewpayment/create') }}" class="btn btn-primary">Add Payment</a>
+        <a href="{{ url('/viewpayment/addpayment') }}" class="btn btn-primary">Add Payment</a>
       </div>
       <div class="row">
         <div class="col-12 grid-margin">
@@ -42,10 +42,10 @@
                               <td> {{ $payment->paymentby }} </td>
                               <td> Rs {{ $payment->updated_at }} </td>  
                             <td>
-                                <a href="" class="btn btn-primary">Update</a>
+                                <a href="{{ route('editpayment', ['id' => $payment->id])}}" class="btn btn-primary">Update</a>
                             </td>
                             <td> 
-                              <a href="" class="btn btn-primary">Delete</a> 
+                              <a href="{{ route('deletepayment', ['id' => $payment->id])}}" class="btn btn-primary">Delete</a> 
                             </td>
                             </tr>
                             @endforeach

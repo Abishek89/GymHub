@@ -65,7 +65,7 @@
                   <div class="row">
                   <div class="col-sm-10">
                   <button type="submit" class="btn btn-primary mr-1">Submit</button>
-                  <button class="btn btn-dark">Cancel</button>
+                  <a href="/viewproduct" class="btn btn-primary mr-1">Cancel</a>
                   </div>
                   </div>
                 </form>

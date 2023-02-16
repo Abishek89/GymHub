@@ -44,10 +44,10 @@
                                 Others
                             @endif </td>
                             <td>
-                                <a href="" class="btn btn-primary">Update</a>
+                                <a href="{{ route('editexpenses', ['id' => $expenses->id])}}" class="btn btn-primary">Update</a>
                             </td>
                             <td> 
-                              <a href="" class="btn btn-primary">Delete</a> 
+                              <a href="{{ route('deleteexpenses', ['id' => $expenses->id])}}" class="btn btn-primary">Delete</a> 
                             </td>
                             </tr>
                             @endforeach

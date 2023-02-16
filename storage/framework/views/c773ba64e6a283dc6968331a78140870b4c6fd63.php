@@ -45,32 +45,28 @@
                     <div class="cs-item">
                         <span class="flaticon-034-stationary-bike"></span>
                         <h4>Modern equipment</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            dolore facilisis.</p>
+                        <p>Our gym features the newest, cutting-edge equipment for a top-notch fitness experience.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="cs-item">
                         <span class="flaticon-033-juice"></span>
                         <h4>Healthy nutrition plan</h4>
-                        <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
-                            facilisis.</p>
+                        <p>We offer customized nutrition plans to complement your workout and achieve your fitness goals.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="cs-item">
                         <span class="flaticon-002-dumbell"></span>
                         <h4>Professional training plan</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            dolore facilisis.</p>
+                        <p>Our gym offers expert training plans designed to meet your individual needs and help you reach your fitness goals.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="cs-item">
                         <span class="flaticon-014-heart-beat"></span>
                         <h4>Unique to your needs</h4>
-                        <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
-                            facilisis.</p>
+                        <p>We offer personalized fitness plans tailored specifically to your unique needs and goals..</p>
                     </div>
                 </div>
             </div>
@@ -199,7 +195,7 @@
                             </li>
                         </ul>
                         <?php if(auth()->guard()->check()): ?>
-                        <a href="#" class="primary-btn pricing-btn">Enroll now</a>
+                        <a href="<?php echo e(url('/enrollform')); ?>" class="primary-btn pricing-btn">Enroll now</a>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -222,25 +218,19 @@
         </div>
         
         <div class="gallery">
+            <?php
+        $gallery=DB::table('gallery')->get();
+    ?>
+    <div class="gallery-section gallery-page">
+        <div class="gallery">
+            <?php $__currentLoopData = $gallery; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $photo): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="grid-sizer"></div>
-            <div class="gs-item grid-wide set-bg" data-setbg="landbootstrap/img/gallery/gallery-1.jpg">
-                <a href="img/gallery/gallery-1.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            <div class="gs-item grid-wide set-bg" data-setbg="<?php echo e(URL::to('/uploads/gallery/'.$photo->image)); ?>">
+                <a href="<?php echo e(URL::to('/uploads/gallery/'.$photo->image)); ?>" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
             </div>
-            <div class="gs-item set-bg" data-setbg="landbootstrap/img/gallery/gallery-2.jpg">
-                <a href="img/gallery/gallery-2.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
-            <div class="gs-item set-bg" data-setbg="landbootstrap/img/gallery/gallery-3.jpg">
-                <a href="img/gallery/gallery-3.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
-            <div class="gs-item set-bg" data-setbg="landbootstrap/img/gallery/gallery-4.jpg">
-                <a href="img/gallery/gallery-4.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
-            <div class="gs-item set-bg" data-setbg="landbootstrap/img/gallery/gallery-5.jpg">
-                <a href="img/gallery/gallery-5.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
-            <div class="gs-item grid-wide set-bg" data-setbg="landbootstrap/img/gallery/gallery-6.jpg">
-                <a href="img/gallery/gallery-6.jpg" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
-            </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </div>
+    </div>
         </div>
     </div>
     <!-- Gallery Section End -->

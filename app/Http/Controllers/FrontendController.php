@@ -43,5 +43,8 @@ class FrontendController extends Controller
 
     }
 
+    public function enroll(){
+        return view('frontend.enrollform');
+    }
 
 }

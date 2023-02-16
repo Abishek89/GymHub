@@ -5,22 +5,24 @@
             <div class="col-md-4">
                 <div class="gt-text">
                     <i class="fa fa-map-marker"></i>
-                    <p>333 Middle Winchendon Rd, Rindge,<br/> NH 03461</p>
+                    <ul>
+                        <li>SundarHaraicha-4, Morang</li>
+                    </ul>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="gt-text">
                     <i class="fa fa-mobile"></i>
                     <ul>
-                        <li>125-711-811</li>
-                        <li>125-668-886</li>
+                        <li>9819368669</li>
+                        <li>025-25748564</li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="gt-text email">
                     <i class="fa fa-envelope"></i>
-                    <p>Support.gymcenter@gmail.com</p>
+                    <p>Support.gymhub@gmail.com</p>
                 </div>
             </div>
         </div>

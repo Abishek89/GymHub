@@ -63,7 +63,7 @@
                                 <a href="{{ route('editplan', ['id' => $plan->id])}}" class="btn btn-primary">Update</a>
                             </td>
                             <td> 
-                              <a href="{{ route('delete', ['id' => $plan->id])}}" class="btn btn-primary">Delete</a> 
+                              <a href="{{ route('deleteplan', ['id' => $plan->id])}}" class="btn btn-primary">Delete</a> 
                             </td>
                             </tr>
                             @endforeach

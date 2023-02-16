@@ -37,5 +37,43 @@ class TrainerController extends Controller
         return view('admin.trainer.viewtrainers');
     }
 
+     //get method to delete the trainer profile
+     public function delete($id)
+     {
+         $trainer = Trainer::find($id);
+         if (!is_null($trainer)) {
+             $trainer->delete();
+         }
+         return redirect('viewtrainers');
+     }
+ 
+    //method to edit the trainer profile
+     public function edit($id)
+     {
+         $trainer = Trainer::find($id);
+         return view('admin.trainer.edittrainer', compact('trainer'));
+     }
+
+     //method to update the trainer profile
+     public function update(Request $request, $id)
+     {
+         $trainer = Trainer::find($id);
+         $trainer->trainername=$request->trainername;
+         if($request->hasfile('image'))
+        {
+            $file = $request->file('image');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('uploads/trainers/', $filename);
+            $trainer->image = $filename;
+        }
+         $trainer->facebook=$request->facebook;
+         $trainer->instagram=$request->instagram;
+         $trainer->twitter=$request->twitter;
+         $trainer->update();
+ 
+         return redirect('viewtrainers')->with('success', 'Trainer added successfully.');
+     }
+
 }
 

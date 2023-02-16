@@ -17,7 +17,6 @@
                             <tr>
                               <th> Photo Id </th>
                               <th> Image </th>
-                              <th> Update </th>
                               <th> Delete </th>
                             </tr>
                           </thead>
@@ -29,11 +28,8 @@
                             <tr>
                               <td>{{ $gallery->id }}</td>
                               <td> <img src="{{ URL::to('/uploads/gallery/'.$gallery->image) }}" class="img-fluid"/> </td>
-                            <td>
-                                <a href="" class="btn btn-primary">Update</a>
-                            </td>
                             <td> 
-                              <a href="{{ route('delete', ['id' => $gallery->id])}}" class="btn btn-primary">Delete</a> 
+                              <a href="{{ route('deletephoto', ['id' => $gallery->id])}}" class="btn btn-primary">Delete</a> 
                             </td>
                             </tr>
                             @endforeach

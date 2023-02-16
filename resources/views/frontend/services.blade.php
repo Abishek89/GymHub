@@ -39,9 +39,7 @@
                 <div class="col-lg-3 order-lg-2 col-md-6 p-0">
                     <div class="ss-text">
                         <h4>Personal training</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut dolore
-                            facilisis.</p>
-                        <a href="#">Explore</a>
+                        <p>Our gym offers one-on-one personal training to help you achieve your fitness goals.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 order-lg-3 col-md-6 p-0">
@@ -52,8 +50,7 @@
                 <div class="col-lg-3 order-lg-4 col-md-6 p-0">
                     <div class="ss-text">
                         <h4>Group fitness classes</h4>
-                        <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus.</p>
-                        <a href="#">Explore</a>
+                        <p>Our gym offers exciting group fitness classes for a fun and supportive workout experience.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 order-lg-8 col-md-6 p-0">
@@ -64,9 +61,7 @@
                 <div class="col-lg-3 order-lg-7 col-md-6 p-0">
                     <div class="ss-text second-row">
                         <h4>Body building</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut dolore
-                            facilisis.</p>
-                        <a href="#">Explore</a>
+                        <p>Our gym offers specialized body building classes to help you build muscle and reach your fitness goals.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 order-lg-6 col-md-6 p-0">
@@ -77,8 +72,7 @@
                 <div class="col-lg-3 order-lg-5 col-md-6 p-0">
                     <div class="ss-text second-row">
                         <h4>Strength training</h4>
-                        <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus.</p>
-                        <a href="#">Explore</a>
+                        <p>Our gym provides strength training classes to help build strength and achieve fitness goals.</p>
                     </div>
                 </div>
             </div>

@@ -19,7 +19,7 @@ class GalleryController extends Controller
             $gallery->image = $filename;
         }
         $gallery->save();
-        return redirect()->back();
+        return redirect('viewupload');
     }
 
 
@@ -33,4 +33,14 @@ class GalleryController extends Controller
     public function view(){
         return view('admin.gallery.viewupload');
     }
+
+     //get method to delete the gallery photo
+     public function delete($id)
+     {
+         $gallery = Gallery::find($id);
+         if (!is_null($gallery)) {
+             $gallery->delete();
+         }
+         return redirect('viewupload');
+     }
 }

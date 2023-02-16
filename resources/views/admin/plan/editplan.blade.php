@@ -10,7 +10,7 @@
         <div class="col-12 grid-margin">
             <div class="card">
               <div class="card-body">
-                <form class="form-sample" action="/planview/update/{{$plan->id}}" method="POST" >
+                <form class="form-sample" action="/planview/updateplan/{{$plan->id}}" method="POST" >
                     @csrf
                   <div class="row">
                     <div class="col-md-6">
@@ -28,30 +28,13 @@
                     </div>
                   </div>
                   <div class="row">
-                  </div>
-                  {{-- <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Package</label>
-                        <div class="col-sm-9">
-                          <select class="form-control" name="package" >
-                            <option>Monthly Packages</option>
-                            <option>Annual Packages</option>
-                            <option>Life Time Membership</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </div> --}}
-                  <div class="row">
                     <div class="col-md-9">
                       <div class="form-group row">
                           <label class="col-sm-2 col-form-label">Package</label>
                           <div class="col-sm-4">
                             <div class="form-check">
                               <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="package" id="membershipRadios1" value="0" checked {{ $plan->package == "0" ? "checked" : "" }} 
-                                /> Monthly Packages </label>
+                                <input type="radio" class="form-check-input" name="package" id="membershipRadios1" value="0" checked {{ $plan->package == "0" ? "checked" : "" }}  /> Monthly Packages </label>
                             </div>
                             <div class="form-check">
                               <label class="form-check-label">

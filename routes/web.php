@@ -38,6 +38,8 @@ Route::get('/gallery', [FrontendController::class, 'gallery'])->name('gallery');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::get('/bmi-calculator', [FrontendController::class, 'bmicalculator'])->name('bmi-calculator');
 Route::get('/shop', [FrontendController::class, 'shop'])->name('shop');
+Route::get('/enrollform', [FrontendController::class, 'enroll'])->name('enrollform');
+
 
 
 //admin route for admin dashboard
@@ -47,33 +49,46 @@ Route::get('/admindashboard', [AdminController::class, 'dashboard'])->name('admi
 Route::get('/planview/createplan', [PlanController::class, 'create'])->name('createplan');
 Route::post('/planview/createplan', [PlanController::class, 'store'])->name('store');
 Route::get('/planview', [PlanController::class, 'view'])->name('planview');
-Route::get('/delete/{id}', [PlanController::class, 'delete'])->name('delete');
+Route::get('/deleteplan/{id}', [PlanController::class, 'delete'])->name('deleteplan');
 Route::get('/planview/editplan/{id}',[PlanController::class,'edit'])->name('editplan');
-Route::post('/planview/update/{id}',[PlanController::class,'update'])->name('update');
+Route::post('/planview/updateplan/{id}',[PlanController::class,'update'])->name('updateplan');
 
 //admin route for add payment
-Route::get('/viewpayment/create', [PaymentPaymentController::class, 'create'])->name('create');
-Route::post('/viewpayment/create', [PaymentPaymentController::class, 'store'])->name('store');
+Route::get('/viewpayment/addpayment', [PaymentPaymentController::class, 'add'])->name('addpayment');
+Route::post('/viewpayment/addpayment', [PaymentPaymentController::class, 'store'])->name('storepayment');
 Route::get('/viewpayment', [PaymentPaymentController::class, 'view'])->name('paymentview');
+Route::get('/deletepayment/{id}', [PaymentPaymentController::class, 'delete'])->name('deletepayment');
+Route::get('/viewpayment/editpayment/{id}',[PaymentPaymentController::class,'edit'])->name('editpayment');
+Route::post('/viewpayment/updatepayment/{id}',[PaymentPaymentController::class,'update'])->name('updatepayment');
 
 
 //admin route for add product
 Route::get('/viewproduct/addproduct', [ProductController::class, 'create'])->name('addproduct');
 Route::post('/viewproduct/addproduct', [ProductController::class, 'store'])->name('store');
 Route::get('/viewproduct', [ProductController::class, 'view'])->name('view');
+Route::get('/deleteproduct/{id}', [ProductController::class, 'delete'])->name('deleteproduct');
+Route::get('/viewproduct/editproduct/{id}',[ProductController::class,'edit'])->name('editproduct');
+Route::post('/viewproduct/updateproduct/{id}',[ProductController::class,'update'])->name('updateproduct');
 
 
 //admin route for add expenses
 Route::get('/viewexpenses/addexpenses', [ExpensesController::class, 'add'])->name('addexpenses');
 Route::post('/viewexpenses/addexpenses', [ExpensesController::class, 'store'])->name('store');
 Route::get('/viewexpenses', [ExpensesController::class, 'view'])->name('view');
+Route::get('/deleteexpenses/{id}', [ExpensesController::class, 'delete'])->name('deleteexpenses');
+Route::get('/viewexpenses/editexpenses/{id}',[ExpensesController::class,'edit'])->name('editexpenses');
+Route::post('/viewexpenses/updateexpenses/{id}',[ExpensesController::class,'update'])->name('updateexpenses');
 
 //admin route for add trainers
 Route::get('/viewtrainers/addtrainers', [TrainerController::class, 'add'])->name('addtrainers');
 Route::post('/viewtrainers/addtrainers', [TrainerController::class, 'store'])->name('store');
 Route::get('/viewtrainers', [TrainerController::class, 'view'])->name('view');
+Route::get('/deletetrainer/{id}', [TrainerController::class, 'delete'])->name('deletetrainer');
+Route::get('/viewtrainers/edittrainer/{id}',[TrainerController::class,'edit'])->name('edittrainer');
+Route::post('/viewtrainers/updatetrainer/{id}',[TrainerController::class,'update'])->name('updatetrainer');
 
 //admin route for message
 Route::get('/viewupload/uploadphoto', [GalleryController::class, 'upload'])->name('uploadphoto');
 Route::post('/viewupload/uploadphoto', [GalleryController::class, 'storephoto'])->name('storephoto');
-Route::get('/viewupload', [GalleryController::class, 'view'])->name('view');
+Route::get('/viewupload', [GalleryController::class, 'view'])->name('viewupload');
+Route::get('/deletephoto/{id}', [GalleryController::class, 'delete'])->name('deletephoto');

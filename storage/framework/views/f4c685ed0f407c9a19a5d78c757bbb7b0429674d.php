@@ -18,6 +18,9 @@
     <!-- Breadcrumb Section End -->
 
     <!-- Shop Section Begin -->
+    <?php
+        $products=DB::table('products')->get();
+    ?>
     <section class="shop-section spad">
         <div class="container">
             <div class="row">
@@ -27,39 +30,23 @@
                         <h2>QUALITY GYM SUPPLEMENTS FOR GYM RAT</h2>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                    <div class="block-4 text-center border">
-                      <figure class="block-4-image">
-                        <a href="shop-single.html"><img src="landbootstrap/img/hero/hero-2.jpg" alt="Image placeholder" class="img-fluid"></a>
-                      </figure>
-                      <div class="block-4-text p-2">
-                        <h3><a href="shop-single.html">Tank Top</a></h3>
-                        <p class="mb-0">$50</p>
-                      </div>
+            </div>
+            <div class="row">
+              <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $products): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <div class="col-lg-4 col-sm-6">
+                  <div class="block-4 text-center border">
+                    <figure class="block-4-image">
+                      <a href="shop-single.html"><img src="<?php echo e(URL::to('/uploads/products/'.$products->image)); ?>" alt="Image placeholder" class="img-fluid"></a>
+                    </figure>
+                    <div class="block-4-text p-2">
+                      <h3><a href="shop-single.html"><?php echo e($products->productname); ?></a></h3>
+                      <p class="mb-0"><?php echo e($products->price); ?></p>
+                      <p class="mb-0"><?php echo e($products->description); ?></p>
                     </div>
                   </div>
-                  <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                    <div class="block-4 text-center border">
-                      <figure class="block-4-image">
-                        <a href="shop-single.html"><img src="landbootstrap/img/hero/hero-2.jpg" alt="Image placeholder" class="img-fluid"></a>
-                      </figure>
-                      <div class="block-4-text p-2">
-                        <h3><a href="shop-single.html">Corater</a></h3>
-                        <p class="mb-0">$50</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                    <div class="block-4 text-center border">
-                      <figure class="block-4-image">
-                        <a href="shop-single.html"><img src="landbootstrap/img/hero/hero-2.jpg" alt="Image placeholder" class="img-fluid"></a>
-                      </figure>
-                      <div class="block-4-text p-2">
-                        <h3><a href="shop-single.html">Polo Shirt</a></h3>
-                        <p class="mb-0">$50</p>
-                      </div>
-                    </div>
-                  </div>
+                </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+          </div>
             </div>
         </div>
     </section>

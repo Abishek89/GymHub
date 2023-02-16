@@ -35,32 +35,28 @@
                     <div class="cs-item">
                         <span class="flaticon-034-stationary-bike"></span>
                         <h4>Modern equipment</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            dolore facilisis.</p>
+                        <p>Our gym features the newest, cutting-edge equipment for a top-notch fitness experience.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="cs-item">
                         <span class="flaticon-033-juice"></span>
                         <h4>Healthy nutrition plan</h4>
-                        <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
-                            facilisis.</p>
+                        <p>We offer customized nutrition plans to complement your workout and achieve your fitness goals.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="cs-item">
                         <span class="flaticon-002-dumbell"></span>
-                        <h4>Proffesponal training plan</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            dolore facilisis.</p>
+                        <h4>Professional training plan</h4>
+                        <p>Our gym offers expert training plans designed to meet your individual needs and help you reach your fitness goals.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="cs-item">
                         <span class="flaticon-014-heart-beat"></span>
                         <h4>Unique to your needs</h4>
-                        <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
-                            facilisis.</p>
+                        <p>We offer personalized fitness plans tailored specifically to your unique needs and goals..</p>
                     </div>
                 </div>
             </div>
@@ -83,23 +79,20 @@
                             <h2>What we have done</h2>
                         </div>
                         <div class="at-desc">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
-                                viverra maecenas accumsan lacus vel facilisis. aliquip ex ea commodo consequat sit amet,
-                                consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                            <p>Founded by experienced fitness professionals, GymHub was established in 2018 in Itahari. Since its inception, we have been making a positive impact on the lives of many individuals in Nepal through our passion for exercise. At GymHub, you will be able to experience a unique and innovative fitness environment with our cutting-edge facilities and equipment. Our talented male and female trainers are always available to support you and help you achieve your fitness goals.</p>
                         </div>
                         <div class="about-bar">
                             <div class="ab-item">
                                 <p>Body building</p>
                                 <div id="bar1" class="barfiller">
-                                    <span class="fill" data-percentage="80"></span>
+                                    <span class="fill" data-percentage="90"></span>
                                     <div class="tipWrap">
                                         <span class="tip"></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="ab-item">
-                                <p>Training</p>
+                                <p>Strength Training</p>
                                 <div id="bar2" class="barfiller">
                                     <span class="fill" data-percentage="85"></span>
                                     <div class="tipWrap">
@@ -108,7 +101,7 @@
                                 </div>
                             </div>
                             <div class="ab-item">
-                                <p>Fitness</p>
+                                <p>Cardio Training</p>
                                 <div id="bar3" class="barfiller">
                                     <span class="fill" data-percentage="75"></span>
                                     <div class="tipWrap">
@@ -179,13 +172,6 @@
                                     incididunt<br /> ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
                                     gravida. Risus commodo<br /> viverra maecenas accumsan lacus vel facilisis.</p>
                                 <h5>Marshmello Gomez</h5>
-                                <div class="tt-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -201,13 +187,6 @@
                                     incididunt<br /> ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
                                     gravida. Risus commodo<br /> viverra maecenas accumsan lacus vel facilisis.</p>
                                 <h5>Marshmello Gomez</h5>
-                                <div class="tt-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                             </div>
                         </div>
                     </div>

@@ -32,10 +32,10 @@
                               <td>{{ $trainer->trainername }}</td>
                               <td> <img src="{{ URL::to('/uploads/trainers/'.$trainer->image) }}" class="img-fluid"/> </td>
                             <td>
-                                <a href="" class="btn btn-primary">Update</a>
+                                <a href="{{ route('edittrainer', ['id' => $trainer->id])}}" class="btn btn-primary">Update</a>
                             </td>
                             <td> 
-                              <a href="{{ route('delete', ['id' => $trainer->id])}}" class="btn btn-primary">Delete</a> 
+                              <a href="{{ route('deletetrainer', ['id' => $trainer->id])}}" class="btn btn-primary">Delete</a> 
                             </td>
                             </tr>
                             @endforeach

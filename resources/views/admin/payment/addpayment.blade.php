@@ -10,7 +10,7 @@
         <div class="col-12 grid-margin">
             <div class="card">
               <div class="card-body">              
-                <form class="form-sample" action="{{ route('create') }}" method="POST" >
+                <form class="form-sample" action="{{ route('addpayment') }}" method="POST" >
                     @csrf
                   <div class="row">
                     <div class="col-md-6">
@@ -62,7 +62,7 @@
                   <div class="row">
                   <div class="col-sm-10">
                   <button type="submit" class="btn btn-primary mr-1">Submit</button>
-                  <button class="btn btn-dark">Cancel</button>
+                  <a href="/viewpayment" class="btn btn-primary mr-1">Cancel</a>
                   </div>
                   </div>
                 </form>
