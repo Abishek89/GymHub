@@ -13,21 +13,34 @@
                 <div class="hs-item set-bg" data-setbg="landbootstrap/img/hero/hero-2.jpg">
             @endauth
                 <div class="container">
+                    @auth
                     <div class="row">
-                        <div class="col-lg-6 offset-lg-6">
-                            <div class="hi-text">
-                                <span>BEST GYM CENTER</span>
-                                <h1>GROW YOUR <strong>STRENGTH WITH </strong>OUR TRAINERS</h1>
-                                @auth
-                                    @else
-                                    <a href="{{ url('/login') }}" class="primary-btn">Sign In</a>
-                                @endauth
+                            <div class="col-lg-6 offset-lg-6">
+                                <div class="hi-text">
+                                    <span>BEST GYM CENTER</span>
+                                    <h1>GROW YOUR <strong>STRENGTH WITH </strong>OUR TRAINERS</h1>
+                                </div>
                             </div>
                         </div>
+                    @endauth
+                    @auth
+                        @else
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-6">
+                                <div class="hi-text">
+                                    <span>Shape your body</span>
+                                    <h1>Be <strong>strong</strong> traning hard</h1>
+                                    <a href="{{ url('/login') }}" class="primary-btn">Sign In</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endauth
                     </div>
+                </div>
                 </div>
             </div>
         </div>
+
     </section>
     <!-- Hero Section End -->
 
@@ -197,7 +210,8 @@
                             </li>
                         </ul>
                         @auth
-                        <a href="{{ url('/enrollform') }}" class="primary-btn pricing-btn">Enroll now</a>
+                        <a href="{{ url('/enrollform') }}" class="primary-btn pricing-btn" >Enroll now</a>
+                        
                         @endauth
                     </div>
                 </div>

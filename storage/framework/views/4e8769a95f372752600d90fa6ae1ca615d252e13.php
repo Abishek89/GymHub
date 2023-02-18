@@ -107,7 +107,7 @@
                                   Annual Packages
                                 <?php else: ?>
                                 Life Time Membership
-                            <?php endif; ?> </span>
+                            <?php endif; ?></span>
                         </div>
                         <ul>
                             <li>Unlimited equipments <?php if(
@@ -128,7 +128,10 @@
 
                             </li>
                         </ul>
-                        <a href="#" class="primary-btn pricing-btn">Enroll now</a>
+                        <?php if(auth()->guard()->check()): ?>
+                        <a href="<?php echo e(url('/enrollform')); ?>" class="primary-btn pricing-btn" >Enroll now</a>
+                        
+                        <?php endif; ?>
                     </div>
                 </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

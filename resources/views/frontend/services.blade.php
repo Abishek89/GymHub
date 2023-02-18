@@ -109,7 +109,7 @@
                                   Annual Packages
                                 @else
                                 Life Time Membership
-                            @endif </span>
+                            @endif</span>
                         </div>
                         <ul>
                             <li>Unlimited equipments @if (
@@ -130,7 +130,10 @@
 
                             </li>
                         </ul>
-                        <a href="#" class="primary-btn pricing-btn">Enroll now</a>
+                        @auth
+                        <a href="{{ url('/enrollform') }}" class="primary-btn pricing-btn" >Enroll now</a>
+                        
+                        @endauth
                     </div>
                 </div>
                 @endforeach

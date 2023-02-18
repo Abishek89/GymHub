@@ -11,21 +11,34 @@
                 <div class="hs-item set-bg" data-setbg="landbootstrap/img/hero/hero-2.jpg">
             <?php endif; ?>
                 <div class="container">
+                    <?php if(auth()->guard()->check()): ?>
                     <div class="row">
-                        <div class="col-lg-6 offset-lg-6">
-                            <div class="hi-text">
-                                <span>BEST GYM CENTER</span>
-                                <h1>GROW YOUR <strong>STRENGTH WITH </strong>OUR TRAINERS</h1>
-                                <?php if(auth()->guard()->check()): ?>
-                                    <?php else: ?>
-                                    <a href="<?php echo e(url('/login')); ?>" class="primary-btn">Sign In</a>
-                                <?php endif; ?>
+                            <div class="col-lg-6 offset-lg-6">
+                                <div class="hi-text">
+                                    <span>BEST GYM CENTER</span>
+                                    <h1>GROW YOUR <strong>STRENGTH WITH </strong>OUR TRAINERS</h1>
+                                </div>
                             </div>
                         </div>
+                    <?php endif; ?>
+                    <?php if(auth()->guard()->check()): ?>
+                        <?php else: ?>
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-6">
+                                <div class="hi-text">
+                                    <span>Shape your body</span>
+                                    <h1>Be <strong>strong</strong> traning hard</h1>
+                                    <a href="<?php echo e(url('/login')); ?>" class="primary-btn">Sign In</a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
+
     </section>
     <!-- Hero Section End -->
 
@@ -195,7 +208,8 @@
                             </li>
                         </ul>
                         <?php if(auth()->guard()->check()): ?>
-                        <a href="<?php echo e(url('/enrollform')); ?>" class="primary-btn pricing-btn">Enroll now</a>
+                        <a href="<?php echo e(url('/enrollform')); ?>" class="primary-btn pricing-btn" >Enroll now</a>
+                        
                         <?php endif; ?>
                     </div>
                 </div>

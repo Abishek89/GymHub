@@ -146,52 +146,5 @@
         </div>
     </section>
     <!-- Team Section End -->
-
-    <!-- Testimonial Section Begin -->
-    <section class="testimonial-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <span>Testimonial</span>
-                        <h2>Our cilent say</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="ts_slider owl-carousel">
-                <div class="ts_item">
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <div class="ti_pic">
-                                <img src="landbootstrap/img/testimonial/testimonial-1.jpg" alt="">
-                            </div>
-                            <div class="ti_text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt<br /> ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
-                                    gravida. Risus commodo<br /> viverra maecenas accumsan lacus vel facilisis.</p>
-                                <h5>Marshmello Gomez</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ts_item">
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <div class="ti_pic">
-                                <img src="landbootstrap/img/testimonial/testimonial-2.jpg" alt="">
-                            </div>
-                            <div class="ti_text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt<br /> ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
-                                    gravida. Risus commodo<br /> viverra maecenas accumsan lacus vel facilisis.</p>
-                                <h5>Marshmello Gomez</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Testimonial Section End -->
     <?php $__env->stopSection(); ?>
 <?php echo $__env->make('frontend.layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/abishek/Desktop/Workspace/GymHub/resources/views/frontend/aboutus.blade.php ENDPATH**/ ?>
