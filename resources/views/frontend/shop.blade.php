@@ -34,22 +34,17 @@
                 </div>
             </div>
             <div class="row">
-              @foreach ($products as $products )
-              <div class="col-lg-4 col-sm-6">
-                  <div class="block-4 text-center border">
-                    <figure class="block-4-image">
-                      <a href="shop-single.html"><img src="{{ URL::to('/uploads/products/'.$products->image) }}" alt="Image placeholder" class="img-fluid"></a>
-                    </figure>
-                    <div class="block-4-text p-2">
-                      <h3><a href="shop-single.html">{{ $products->productname }}</a></h3>
-                      <p class="mb-0">{{ $products->price }}</p>
-                      <p class="mb-0">{{ $products->description }}</p>
+                @foreach ($products as $products )
+                <div class="col-lg-4 col-sm-6">
+                    <div class="ts-item set-bg" data-setbg="{{ URL::to('/uploads/products/'.$products->image) }}">
+                        <div class="ts_text">
+                            <h4><a href="{{ route('shopsingle',$products->id) }}">{{ $products->productname }}</a></h4>
+                            <h4>Rs {{ $products->price }}</h4>
+                        </div>
                     </div>
-                  </div>
                 </div>
                 @endforeach
           </div>
-            </div>
         </div>
     </section>
     

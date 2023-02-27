@@ -38,7 +38,7 @@ Route::get('/gallery', [FrontendController::class, 'gallery'])->name('gallery');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::get('/bmi-calculator', [FrontendController::class, 'bmicalculator'])->name('bmi-calculator');
 Route::get('/shop', [FrontendController::class, 'shop'])->name('shop');
-Route::get('/enrollform', [FrontendController::class, 'enroll'])->name('enrollform');
+Route::get('/enrollform/{id}', [FrontendController::class, 'enroll'])->name('enrollform');
 
 
 
@@ -92,3 +92,19 @@ Route::get('/viewupload/uploadphoto', [GalleryController::class, 'upload'])->nam
 Route::post('/viewupload/uploadphoto', [GalleryController::class, 'storephoto'])->name('storephoto');
 Route::get('/viewupload', [GalleryController::class, 'view'])->name('viewupload');
 Route::get('/deletephoto/{id}', [GalleryController::class, 'delete'])->name('deletephoto');
+
+
+//admin route for admin dashboard
+// Route::get('/trainer', [TrainerController::class, 'dashboard'])->name('trainer');
+
+//single shop controller
+Route::get('/shopsingle/{id}', [FrontendController::class, 'shopsingle'])->name('shopsingle');
+
+//add to cart
+Route::get('/addtocart', [FrontendController::class, 'addtocart'])->name('addtocart');
+
+//checkout and thankyou
+Route::get('/checkout', [FrontendController::class, 'checkout'])->name('checkout');
+Route::get('/thankyou', [FrontendController::class, 'thankyou'])->name('thankyou');
+
+//trainerdashboard

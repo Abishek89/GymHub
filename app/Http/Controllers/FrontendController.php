@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plan;
-use Illuminate\Http\Request;
+use App\Models\Products;
 
 class FrontendController extends Controller
 {
@@ -15,11 +15,6 @@ class FrontendController extends Controller
 
     public function bmicalculator(){
         return view('frontend.bmi-calculator');
-    }
-
-    public function contact(){
-        return view('frontend.contact');
-
     }
 
     public function gallery(){
@@ -37,14 +32,40 @@ class FrontendController extends Controller
         return view('frontend.shop');
 
     }
+
+    public function shopsingle($id){
+        $products=Products::find($id);
+        return view('frontend.shopsingle', compact('products'));
+
+    }
+
+    public function addtocart(){
+        // $products=Products::find($id);
+        return view('frontend.addtocart');
+
+    } 
+
+    public function checkout(){
+        // $products=Products::find($id);
+        return view('frontend.checkout');
+
+    } 
+
+
+    public function thankyou(){
+        // $products=Products::find($id);
+        return view('frontend.thankyou');
+
+    } 
     
     public function team(){
         return view('frontend.team');
 
     }
 
-    public function enroll(){
-        return view('frontend.enrollform');
+    public function enroll($id){
+        $plan=Plan::find($id);
+        return view('frontend.enrollform' ,compact('plan'));
     }
 
 }

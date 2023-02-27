@@ -25,19 +25,30 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">email</label>
+                        <div class="col-sm-9">
+                          <input type="email" class="form-control" name="email" placeholder="Email" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {{-- <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Image</label>
                         <div class="col-sm-9">
                           <input type="file" id="myFile" name="image">
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> --}}
+                  {{-- password --}}
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Facebook</label>
+                        <label class="col-sm-3 col-form-label">Password</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="facebook" placeholder="Facebook Link" />
+                          <input type="password" class="form-control" name="password" placeholder="password" />
                         </div>
                       </div>
                     </div>
@@ -45,19 +56,9 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Instagram</label>
+                        <label class="col-sm-3 col-form-label">password</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="instagram" placeholder="Instagram Link" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Twitter</label>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" name="twitter" placeholder="Twitter Link" />
+                          <input type="password" class="form-control" name="confirm-password" placeholder="confirm-password" />
                         </div>
                       </div>
                     </div>

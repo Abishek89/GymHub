@@ -33,14 +33,14 @@
 
 
 <!-- Js Plugins -->
-<script src="landbootstrap/js/jquery-3.3.1.min.js"></script>
-<script src="landbootstrap/js/bootstrap.min.js"></script>
-<script src="landbootstrap/js/jquery.magnific-popup.min.js"></script>
-<script src="landbootstrap/js/masonry.pkgd.min.js"></script>
-<script src="landbootstrap/js/jquery.barfiller.js"></script>
-<script src="landbootstrap/js/jquery.slicknav.js"></script>
-<script src="landbootstrap/js/owl.carousel.min.js"></script>
-<script src="landbootstrap/js/main.js"></script>
+<script src="{{ asset('landbootstrap/js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('landbootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('landbootstrap/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('landbootstrap/js/masonry.pkgd.min.js') }}"></script>
+<script src="{{ asset('landbootstrap/js/jquery.barfiller.js') }}"></script>
+<script src="{{ asset('landbootstrap/js/jquery.slicknav.js') }}"></script>
+<script src="{{ asset('landbootstrap/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('landbootstrap/js/main.js') }}"></script>
 
 
 

@@ -67,19 +67,25 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
                             viverra maecenas accumsan lacus vel facilisis.</p>
-                        <form action="#">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <input type="text" placeholder="Height / cm">
+                            <form action="#">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <input type="text" placeholder="Height / cm">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" placeholder="Weight / kg">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" placeholder="Age">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" placeholder="Sex">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <button type="submit">Calculate</button>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type="text" placeholder="Weight / kg">
-                                </div>
-                                <div class="col-lg-12">
-                                    <button type="submit">Calculate</button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
                     </div>
                 </div>
             </div>

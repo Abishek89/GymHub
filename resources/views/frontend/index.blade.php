@@ -210,7 +210,7 @@
                             </li>
                         </ul>
                         @auth
-                        <a href="{{ url('/enrollform') }}" class="primary-btn pricing-btn" >Enroll now</a>
+                        <a href="{{ route('enrollform',$plan->id) }}" class="primary-btn pricing-btn" >Enroll now</a>
                         
                         @endauth
                     </div>

@@ -17,25 +17,23 @@
                             <tr>
                               <th> Trainer Id </th>
                               <th> Trainer Name </th>
-                              <th> Image </th>
                               <th> Update </th>
                               <th> Delete </th>
                             </tr>
                           </thead>
                           @php
-                            $trainer=DB::table('trainer')->get();
+                            $users=DB::table('users')->get();
                         @endphp
                           <tbody>
-                            @foreach ($trainer as $trainer ) 
+                            @foreach ($users as $users ) 
                             <tr>
-                              <td>{{ $trainer->id }}</td>
-                              <td>{{ $trainer->trainername }}</td>
-                              <td> <img src="{{ URL::to('/uploads/trainers/'.$trainer->image) }}" class="img-fluid"/> </td>
+                              <td>{{ $users->id }}</td>
+                              <td>{{ $users->name }}</td>
                             <td>
-                                <a href="{{ route('edittrainer', ['id' => $trainer->id])}}" class="btn btn-primary">Update</a>
+                                <a href="{{ route('edittrainer', ['id' => $users->id])}}" class="btn btn-primary">Update</a>
                             </td>
                             <td> 
-                              <a href="{{ route('deletetrainer', ['id' => $trainer->id])}}" class="btn btn-primary">Delete</a> 
+                              <a href="{{ route('deletetrainer', ['id' => $users->id])}}" class="btn btn-primary">Delete</a> 
                             </td>
                             </tr>
                             @endforeach

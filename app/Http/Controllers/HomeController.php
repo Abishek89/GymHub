@@ -25,10 +25,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-       if(Auth::user()->role==0){
-           return view('admin/admindashboard');}
+       if(Auth::user()->role==0)
+       {
+           return view('admin.admindashboard');
+        }
+           elseif(Auth::user()->role==2)
+           {    
+               return view('trainer.trainer'); 
+           }
        else{
-        $plan=Plan::all();
-        return view('frontend.index', compact('plan'));
+           if(Auth::user()->verified==false)
+           {
+           return view('frontend.enrollform');
+        }
+           else{
+            $plan=Plan::all();
+            return view('frontend.index', compact('plan'));
+           }
+
     }}
 }

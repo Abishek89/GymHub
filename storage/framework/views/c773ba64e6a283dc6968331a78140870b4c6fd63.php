@@ -208,7 +208,7 @@
                             </li>
                         </ul>
                         <?php if(auth()->guard()->check()): ?>
-                        <a href="<?php echo e(url('/enrollform')); ?>" class="primary-btn pricing-btn" >Enroll now</a>
+                        <a href="<?php echo e(route('enrollform',$plan->id)); ?>" class="primary-btn pricing-btn" >Enroll now</a>
                         
                         <?php endif; ?>
                     </div>
