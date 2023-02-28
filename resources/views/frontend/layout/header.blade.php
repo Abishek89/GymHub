@@ -47,6 +47,7 @@
                                 <li><a href="{{ url('services') }}">Services</a></li>
                                 <li><a href="{{ url('shop') }}">Shop</a></li>
                                 <li><a href="{{ url('team') }}">Our Team</a></li>
+                                
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">
                                         <li><a href="{{ url('bmi-calculator') }}">Bmi calculate</a></li>
@@ -70,10 +71,13 @@
                          <div class="col-lg-2">
                             <div class="top-option">
                                 <div class="to-social">
+                                   
                                     <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-youtube-play"></i></a>
                                     <a href="#"><i class="fa fa-instagram"></i></a>
+                                    @auth
+                                    <a href="{{ route('cart') }}"><i class="fa fa-shopping-cart"></i></a>
+                                    <a href="#"><i class="fa fa-user"></i></a>
+                                    @endauth
                                 </div>
                             </div>
                         </div>
@@ -82,56 +86,4 @@
         
     </nav>
 </header> 
-    {{-- <header class="header-section">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="logo">
-                        <a href="{{ url('/') }}">
-                            <img src="/landbootstrap/img/logo.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <nav class="nav-menu">
-                        <ul>
-                            @auth
-                            <li class="active"><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="{{ url('aboutus') }}">About Us</a></li>
-                            <li><a href="{{ url('services') }}">Services</a></li>
-                            <li><a href="{{ url('shop') }}">Shop</a></li>
-                            <li><a href="{{ url('team') }}">Our Team</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="{{ url('bmi-calculator') }}">Bmi calculate</a></li>
-                                    <li><a href="{{ url('gallery') }}">Gallery</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a class="logout" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                                </form> 
-                            </li>  
-                            @endauth
-                        </ul>
-                    </nav>
-                </div>
-                     <div class="col-lg-2">
-                        <div class="top-option">
-                            <div class="to-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-youtube-play"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </header> --}}
-    <!-- Header End -->
+    

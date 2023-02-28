@@ -32,18 +32,19 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Fill Up Your Personal Details</h2>
-                    <form method="POST">
+                    <form action="{{ route('add.enrollform') }}" method="POST">
+                        @csrf
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Full Name *</label>
-                                    <input class="input--style-4" type="text" name="first_name" required>
+                                    <input class="input--style-4" type="text" name="name" required>
                                 </div>
                             </div> 
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Age *</label>
-                                    <input class="input--style-4" type="number" name="Age" min="12" max="100" required>
+                                    <input class="input--style-4" type="number" name="Age" min="12" max="60" required>
                                 </div>
                             </div> 
                         </div>
@@ -77,7 +78,7 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Height(CM) *</label>
-                                    <input type="text" class="input--style-4" id="height" autocomplete="off" required>
+                                    <input type="text" class="input--style-4" id="height" name="height" autocomplete="off" required>
                                 </div>
                             </div> 
                             <div class="col-2">

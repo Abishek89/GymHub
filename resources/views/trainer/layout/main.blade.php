@@ -25,7 +25,7 @@
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-            <a class="sidebar-brand brand-logo" href="#"><img src="/adminbootstrap/images/logo.png" alt="logo" /></a>
+            <a class="sidebar-brand brand-logo" href="{{ route('trainerdashboard') }}"><img src="/adminbootstrap/images/logo.png" alt="logo" /></a>
           </div>
           <ul class="nav">
             <li class="nav-item profile">
@@ -45,7 +45,7 @@
             <li class="nav-item nav-category">
             </li>
             <li class="nav-item menu-items">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{ route('trainerdashboard') }}">
                 <span class="menu-icon">
                   <i class="mdi mdi-speedometer"></i>
                 </span>
@@ -53,27 +53,19 @@
               </a>
             </li>
             <li class="nav-item menu-items">
-              <a class="nav-link" data-toggle="collapse" href="#members" aria-expanded="false" aria-controls="members">
+              <a class="nav-link" href="#">
                 <span class="menu-icon">
-                  <i class="mdi mdi-laptop"></i>
+                  <i class="mdi mdi-contacts"></i>
                 </span>
                 <span class="menu-title">Members</span>
-                <i class="menu-arrow"></i>
               </a>
-              <div class="collapse" id="members">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">All Members</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Active members</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Inactive Members</a></li>
-                </ul>
-              </div>
             </li>
             <li class="nav-item menu-items">
               <a class="nav-link" href="#">
                 <span class="menu-icon">
                   <i class="mdi mdi-contacts"></i>
                 </span>
-                <span class="menu-title">Expenses</span>
+                <span class="menu-title">Services</span>
               </a>
             </li>
           </ul>

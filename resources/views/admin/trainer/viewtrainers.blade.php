@@ -22,7 +22,7 @@
                             </tr>
                           </thead>
                           @php
-                            $users=DB::table('users')->get();
+                            $users=DB::table('users')->where('role',2)->get();
                         @endphp
                           <tbody>
                             @foreach ($users as $users ) 

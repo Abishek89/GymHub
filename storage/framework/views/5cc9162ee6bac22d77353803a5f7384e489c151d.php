@@ -47,6 +47,7 @@
                                 <li><a href="<?php echo e(url('services')); ?>">Services</a></li>
                                 <li><a href="<?php echo e(url('shop')); ?>">Shop</a></li>
                                 <li><a href="<?php echo e(url('team')); ?>">Our Team</a></li>
+                                
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">
                                         <li><a href="<?php echo e(url('bmi-calculator')); ?>">Bmi calculate</a></li>
@@ -71,10 +72,13 @@
                          <div class="col-lg-2">
                             <div class="top-option">
                                 <div class="to-social">
+                                   
                                     <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-youtube-play"></i></a>
                                     <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <?php if(auth()->guard()->check()): ?>
+                                    <a href="<?php echo e(route('cart')); ?>"><i class="fa fa-shopping-cart"></i></a>
+                                    <a href="#"><i class="fa fa-user"></i></a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -83,5 +87,4 @@
         
     </nav>
 </header> 
-    
-    <!-- Header End --><?php /**PATH /Users/abishek/Desktop/Workspace/GymHub/resources/views/frontend/layout/header.blade.php ENDPATH**/ ?>
+    <?php /**PATH /Users/abishek/Desktop/Workspace/GymHub/resources/views/frontend/layout/header.blade.php ENDPATH**/ ?>

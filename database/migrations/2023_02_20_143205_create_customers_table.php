@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('userid');
+            $table->string('name');
             $table->string('image');
             $table->date('DOB');
             $table->string('gender');
@@ -23,7 +24,7 @@ return new class extends Migration
             $table->integer('height');
             $table->integer('weight');
             $table->string('email');
-            $table->integer('phone');
+            $table->biginteger('phone');
             $table->timestamps();
             $table->foreign('userid')->references('id')->on('users');
         });

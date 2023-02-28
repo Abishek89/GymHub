@@ -1,1 +1,0 @@
-<?php /**PATH /Users/abishek/Desktop/Workspace/GymHub/resources/views/frontend/class-details.blade.php ENDPATH**/ ?>

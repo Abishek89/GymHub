@@ -62,29 +62,36 @@
                         </tr>
                       </thead>
                       <tbody>
+                        @foreach ($cart_item as $cart_item)
+                          
                         <tr>
+                          @php
+                              $product = DB::table('products')->where('id',$cart_item->product_id)->first();
+                          @endphp
                           <td class="product-thumbnail">
-                            <img src="/shopbootstrap/images/cloth_1.jpg" alt="Image" class="img-fluid">
+                            <img src="{{ URL::to('uploads/products/'.$product->image) }}" alt="Image" class="img-fluid">
                           </td>
                           <td class="product-name">
-                            <h2 class="h5 text-black">Top Up T-Shirt</h2>
+                            <h2 class="h5 text-black">{{ $product->productname }}</h2>
                           </td>
-                          <td>$49.00</td>
+                          <td>Rs. {{ $product->price }}</td>
                           <td>
                             <div class="input-group mb-3" style="max-width: 120px;">
                               <div class="input-group-prepend">
                                 <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                               </div>
-                              <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                              <input type="text" class="form-control text-center" value="{{ $cart_item->quantity }}" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                               <div class="input-group-append">
                                 <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                               </div>
                             </div>
       
                           </td>
-                          <td>$49.00</td>
+                          <td>Rs. {{ $cart_item->price }}</td>
                           <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
                         </tr>
+                        @endforeach
+                        
                       </tbody>
                     </table>
                   </div>
@@ -115,7 +122,7 @@
                           <span class="text-black">Subtotal</span>
                         </div>
                         <div class="col-md-6 text-right">
-                          <strong class="text-black">$230.00</strong>
+                          <strong class="text-black">Rs. {{ $total_Amount }}</strong>
                         </div>
                       </div>
                       <div class="row mb-5">
@@ -123,13 +130,17 @@
                           <span class="text-black">Total</span>
                         </div>
                         <div class="col-md-6 text-right">
-                          <strong class="text-black">$230.00</strong>
+                        <strong class="text-black">Rs. {{ $total_Amount }}</strong>
                         </div>
                       </div>
       
                       <div class="row">
                         <div class="col-md-12">
-                          <p><a href="{{ route('checkout') }}" class="btn btn-primary btn-lg py-3 btn-block">Proceed To Checkout</a></p>
+                          <form action="{{ route('checkout') }}">
+                            @csrf
+                            <input type="hidden" name="totalamt" value="{{ $total_Amount }}">
+                          <button class="btn btn-primary btn-lg py-3 btn-block">Proceed To Checkout</button>
+                          </form>
                         </div>
                       </div>
                     </div>

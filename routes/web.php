@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Plan\PlanController;
 use App\Http\Controllers\Expenses\ExpensesController;
 use App\Http\Controllers\FrontendController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Payment\PaymentController as PaymentPaymentController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Trainer\TrainerController;
+use App\Http\Controllers\Trainerdashboard\TrainerdashController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,7 +32,6 @@ Route::get('/', function () {
 Auth::routes();
 
 // frontend user route
-Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/aboutus', [FrontendController::class, 'aboutus'])->name('aboutus');
 Route::get('/services', [FrontendController::class, 'services'])->name('services');
 Route::get('/team', [FrontendController::class, 'team'])->name('team');
@@ -38,7 +39,9 @@ Route::get('/gallery', [FrontendController::class, 'gallery'])->name('gallery');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::get('/bmi-calculator', [FrontendController::class, 'bmicalculator'])->name('bmi-calculator');
 Route::get('/shop', [FrontendController::class, 'shop'])->name('shop');
-Route::get('/enrollform/{id}', [FrontendController::class, 'enroll'])->name('enrollform');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::post('/home', [HomeController::class, 'enrolldata'])->name('add.enrollform');
+
 
 
 
@@ -94,17 +97,23 @@ Route::get('/viewupload', [GalleryController::class, 'view'])->name('viewupload'
 Route::get('/deletephoto/{id}', [GalleryController::class, 'delete'])->name('deletephoto');
 
 
-//admin route for admin dashboard
-// Route::get('/trainer', [TrainerController::class, 'dashboard'])->name('trainer');
+//trainer route 
+//for trainer dashboard
+Route::get('/trainerdashboard', [TrainerdashController::class, 'trainerdashboard'])->name('trainerdashboard');
 
+
+
+
+//ecommerce route
 //single shop controller
 Route::get('/shopsingle/{id}', [FrontendController::class, 'shopsingle'])->name('shopsingle');
 
 //add to cart
-Route::get('/addtocart', [FrontendController::class, 'addtocart'])->name('addtocart');
+Route::post('/addtocart', [FrontendController::class, 'addtocart'])->name('addtocart');
+Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
+
 
 //checkout and thankyou
 Route::get('/checkout', [FrontendController::class, 'checkout'])->name('checkout');
+Route::post('add/checkout',[FrontendController::class,'order'])->name('add.checkout');
 Route::get('/thankyou', [FrontendController::class, 'thankyou'])->name('thankyou');
-
-//trainerdashboard
