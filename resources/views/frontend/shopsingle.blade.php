@@ -55,7 +55,7 @@
             </div>
 
             </div>
-            <button  type="submit" class="buy-now btn btn-sm btn-primary">Add To Cart</button>
+            <a> <button type="submit" class="buy-now btn btn-sm btn-primary">Add To Cart</button></a>
           </form>
 
           </div>

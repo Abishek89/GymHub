@@ -210,7 +210,8 @@
                             </li>
                         </ul>
                         @auth
-                        <a href="{{ route('enrollform',$plan->id) }}" class="primary-btn pricing-btn" >Enroll now</a>
+                        {{-- <a href="{{ route('',$plan->id) }}" class="primary-btn pricing-btn" >Enroll now</a> --}}
+                        <a href="{{ route('trainerselection',$plan->id) }}" class="primary-btn pricing-btn" >Enroll now</a>
                         
                         @endauth
                     </div>
@@ -271,7 +272,7 @@
                     <div class="col-lg-4">
                         <div class="ts-item set-bg" data-setbg="{{ URL::to('/uploads/trainers/'.$member->image) }}">
                             <div class="ts_text">
-                                <h4>{{ $member->trainername }}</h4>
+                                <h4>{{ $member->name }}</h4>
                                 <span>Gym Trainer</span>
                             </div>
                         </div>

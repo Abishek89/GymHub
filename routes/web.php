@@ -7,12 +7,14 @@ use App\Http\Controllers\Expenses\ExpensesController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\Gallery\GalleryController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Payment\PaymentController as PaymentPaymentController;
+use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Trainer\TrainerController;
 use App\Http\Controllers\Trainerdashboard\TrainerdashController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +43,10 @@ Route::get('/bmi-calculator', [FrontendController::class, 'bmicalculator'])->nam
 Route::get('/shop', [FrontendController::class, 'shop'])->name('shop');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::post('/home', [HomeController::class, 'enrolldata'])->name('add.enrollform');
+Route::post('/trainer/enroll', [HomeController::class, 'enrolltrainer'])->name('trainer.enroll');
+Route::get('/enrollpage', [FrontendController::class, 'enrollpage'])->name('enrollpage');
+Route::get('/enrollpage/{id}', [FrontendController::class, 'payment'])->name('payment');
+
 
 
 
@@ -97,9 +103,18 @@ Route::get('/viewupload', [GalleryController::class, 'view'])->name('viewupload'
 Route::get('/deletephoto/{id}', [GalleryController::class, 'delete'])->name('deletephoto');
 
 
+
+
+//select trainer dashboard for user
+Route::get('/trainerselection/{id}', [FrontendController::class, 'trainerselect'])->name('trainerselection');
+Route::get('/trainerdeatils/{planid}/{trainerid}', [FrontendController::class, 'trainer_details'])->name('trainer.details');
+Route::post('trainee/enroll',[FrontendController::class,'enroll'])->name('trainee.enroll');
+
 //trainer route 
 //for trainer dashboard
-Route::get('/trainerdashboard', [TrainerdashController::class, 'trainerdashboard'])->name('trainerdashboard');
+Route::get('/trainer', [TrainerdashController::class, 'trainerdashboard'])->name('trainerdashboard');
+Route::get('/trainer/member', [TrainerdashController::class, 'member'])->name('member');
+
 
 
 
@@ -117,3 +132,12 @@ Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
 Route::get('/checkout', [FrontendController::class, 'checkout'])->name('checkout');
 Route::post('add/checkout',[FrontendController::class,'order'])->name('add.checkout');
 Route::get('/thankyou', [FrontendController::class, 'thankyou'])->name('thankyou');
+
+
+
+
+//Khalti enroll
+
+Route::post('/khalti/payment/verify',[PaymentController::class,'verifyPayment'])->name('khalti.verifyPayment');
+
+Route::post('/khalti/payment/store',[PaymentController::class,'storePayment'])->name('khalti.storePayment');

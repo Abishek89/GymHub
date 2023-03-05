@@ -16,7 +16,7 @@ h4,
 h5,
 h6 {
 	margin: 0;
-	color: #111111;
+	color: #fff;
 	font-weight: 400;
 	font-family: "Oswald", sans-serif;
 }
@@ -988,7 +988,7 @@ ol {
 -----------------------*/
 
 .breadcrumb-section {
-	height: 500px;
+	height: 420px;
 	padding-top: 230px;
 }
 

@@ -31,7 +31,6 @@
 <!-- Get In Touch Section End -->
 
 
-
 <!-- Js Plugins -->
 <script src="{{ asset('landbootstrap/js/jquery-3.3.1.min.js') }}"></script>
 <script src="{{ asset('landbootstrap/js/bootstrap.min.js') }}"></script>

@@ -208,7 +208,8 @@
                             </li>
                         </ul>
                         <?php if(auth()->guard()->check()): ?>
-                        <a href="<?php echo e(route('enrollform',$plan->id)); ?>" class="primary-btn pricing-btn" >Enroll now</a>
+                        
+                        <a href="<?php echo e(route('trainerselection',$plan->id)); ?>" class="primary-btn pricing-btn" >Enroll now</a>
                         
                         <?php endif; ?>
                     </div>
@@ -269,7 +270,7 @@
                     <div class="col-lg-4">
                         <div class="ts-item set-bg" data-setbg="<?php echo e(URL::to('/uploads/trainers/'.$member->image)); ?>">
                             <div class="ts_text">
-                                <h4><?php echo e($member->trainername); ?></h4>
+                                <h4><?php echo e($member->name); ?></h4>
                                 <span>Gym Trainer</span>
                             </div>
                         </div>

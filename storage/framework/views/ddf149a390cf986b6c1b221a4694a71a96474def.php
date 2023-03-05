@@ -135,7 +135,7 @@
                     <div class="col-lg-4">
                         <div class="ts-item set-bg" data-setbg="<?php echo e(URL::to('/uploads/trainers/'.$member->image)); ?>">
                             <div class="ts_text">
-                                <h4><?php echo e($member->trainername); ?></h4>
+                                <h4><?php echo e($member->name); ?></h4>
                                 <span>Gym Trainer</span>
                             </div>
                         </div>

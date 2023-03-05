@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('image');
             $table->date('DOB');
             $table->string('gender');
-            $table->integer('age');
             $table->integer('height');
             $table->integer('weight');
             $table->string('email');

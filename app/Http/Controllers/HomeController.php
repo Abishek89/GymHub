@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\Plan;
+use App\Models\Trainer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,8 +33,15 @@ class HomeController extends Controller
            return view('admin.admindashboard');
         }
            elseif(Auth::user()->role==2)
-           {    
-               return view('trainer.trainer');
+           {  
+               if(Auth::user()->verified==false){
+                   return view('frontend.formtrainer');
+               }  
+               else{
+                   
+               return route('trainerdashboard');
+
+               }
            }
        else{
            if(Auth::user()->verified==false)
@@ -48,15 +56,15 @@ class HomeController extends Controller
     }}
 
     public function enrolldata(Request $request){
-        // echo "<pre>";
-        // print_r($request->all());
+
+     
+
         // $request->validate(
         //     [
         //         'name' => 'required',
         //         'image' => 'required',
         //         'DOB'  => 'required',
         //         'gender'    => 'required',
-        //         'age'    => 'required',
         //         'height'    => 'required',
         //         'weight'    => 'required',
         //         'email'    => 'required',
@@ -72,7 +80,6 @@ class HomeController extends Controller
         $customers->image=$request->image;
         $customers->DOB=$request->birthday;
         $customers->gender=$request->gender;
-        $customers->age=$request->Age;
         $customers->height=$request->height;
         $customers->weight=$request->weight;
         $customers->email=$request->email;
@@ -89,4 +96,28 @@ class HomeController extends Controller
        
 
     } 
+
+
+
+
+    function enrolltrainer(Request $request){
+
+        $trainer = new Trainer();
+        $trainer-> name = $request-> name;
+        $trainer-> image = $request-> image;
+        $trainer-> DOB = $request-> birthday;
+        $trainer-> gender= $request-> gender;
+        $trainer-> height= $request-> height;
+        $trainer-> weight = $request-> weight;
+        $trainer-> email= Auth::user()->email;
+        $trainer-> phone= $request-> phone;
+        $trainer->userid = $request->user_id;
+        $trainer->save();
+
+        $user= User::where('id',Auth::user()->id)->first();
+        $user->verified= true;
+
+        return redirect()->route('trainerdashboard');
+
+    }
 }

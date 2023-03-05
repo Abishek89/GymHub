@@ -38,12 +38,12 @@
                 <div class="col-lg-4 col-sm-6">
                     <div class="ts-item set-bg" data-setbg="{{ URL::to('/uploads/trainers/'.$member->image) }}">
                         <div class="ts_text">
-                            <h4>{{ $member->trainername }}</h4>
+                            <h4>{{ $member->name }}</h4>
                             <span>Gym Trainer</span>
                             <div class="tt_social">
-                                <a href="{{ $member->facebook }}"><i class="fa fa-facebook"></i></a>
-                                <a href="{{ $member->twitter }}"><i class="fa fa-twitter"></i></a>
-                                <a href="{{ $member->instagram }}"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>

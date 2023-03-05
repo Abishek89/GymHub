@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('Apartmentno')->nullable();
             $table->integer('zip')->nullable();
             $table->string('email');
-            $table->integer('phone');
+            $table->biginteger('phone');
             $table->timestamps();
         });
     }

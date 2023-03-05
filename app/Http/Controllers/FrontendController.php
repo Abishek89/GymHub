@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\cart;
 use App\Models\Customer;
+use App\Models\Enroll;
 use App\Models\Order;
 use App\Models\Plan;
 use App\Models\Products;
+use App\Models\Trainer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,8 +17,33 @@ use function GuzzleHttp\Promise\all;
 class FrontendController extends Controller
 {
 
+    public function trainerselect($id){
+        $plan = Plan::find($id);
+        $trainers = Trainer::all();
+        return view('frontend.trainerselection',compact('trainers','plan'));
+    }
+
+    function trainer_details($planid,$trainerid){
+        $trainer= Trainer::where('id',$trainerid)->first();
+        $plan= Plan::where('id',$planid)->first();
+        return view('frontend.trainerdetails',compact('trainer','plan'));
+
+    }
+
     public function aboutus(){
         return view('frontend.aboutus');
+
+    }
+
+    public function payment($id){
+        $enroll = Enroll::find($id);
+        return view('frontend.payment',compact('enroll'));
+
+    }
+
+    public function enrollpage(){
+        $enroll =  Enroll::where('user',Auth::user()->id)->get();
+        return view('frontend.enrollpage',compact('enroll'));
 
     }
 
@@ -98,7 +125,7 @@ class FrontendController extends Controller
         $cart->quantity =  $request->qty;
         $cart->price = $total_price;
         $cart->save();
-        return redirect()->back()->with('success','item added successfully');
+        return redirect()->route('shop')->with('success','item added successfully');
 
 
        
@@ -118,7 +145,7 @@ class FrontendController extends Controller
         // $products=Products::find($id);
         return view('frontend.thankyou');
 
-    } 
+    }
 
 
 
@@ -144,5 +171,18 @@ class FrontendController extends Controller
             $cart->status= true;
             $cart->save();
         }
+    }
+
+
+
+    function enroll(Request $request){
+
+        $enroll = new Enroll();
+        $enroll->plan = $request->plan_id;
+        $enroll->trainer = $request->trainer_id;
+        $enroll->user = Auth::user()->id;
+        $enroll->status = 0;
+        $enroll->save();
+        return redirect('enrollpage');
     }
 }

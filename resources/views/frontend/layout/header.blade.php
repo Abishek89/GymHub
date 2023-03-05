@@ -46,6 +46,7 @@
                                 <li><a href="{{ url('aboutus') }}">About Us</a></li>
                                 <li><a href="{{ url('services') }}">Services</a></li>
                                 <li><a href="{{ url('shop') }}">Shop</a></li>
+                                <li><a href="{{ route('enrollpage') }}">Enroll</a></li>
                                 <li><a href="{{ url('team') }}">Our Team</a></li>
                                 
                                 <li><a href="#">Pages</a>

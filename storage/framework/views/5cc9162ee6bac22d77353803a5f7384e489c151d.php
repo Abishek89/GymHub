@@ -46,6 +46,7 @@
                                 <li><a href="<?php echo e(url('aboutus')); ?>">About Us</a></li>
                                 <li><a href="<?php echo e(url('services')); ?>">Services</a></li>
                                 <li><a href="<?php echo e(url('shop')); ?>">Shop</a></li>
+                                <li><a href="<?php echo e(route('enrollpage')); ?>">Enroll</a></li>
                                 <li><a href="<?php echo e(url('team')); ?>">Our Team</a></li>
                                 
                                 <li><a href="#">Pages</a>

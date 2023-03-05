@@ -43,10 +43,10 @@
                             </div> 
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Age *</label>
-                                    <input class="input--style-4" type="number" name="Age" min="12" max="60" required>
+                                    <label class="label">Phone Number *</label>
+                                    <input class="input--style-4" type="text" name="phone" required>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                         <div class="row row-space">
                             <div class="col-2">
@@ -97,19 +97,11 @@
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Phone Number *</label>
-                                    <input class="input--style-4" type="text" name="phone" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
                                     <label class="label">Image *</label>
                                     <input class="input--style-4" type="file" id="myFile" name="image" required>
                                 </div>
                             </div>
-                        </div>        
+                        </div>       
                         <div class="p-t-15">
                             <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
                         </div>
