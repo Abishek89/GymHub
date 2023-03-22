@@ -16,12 +16,13 @@ return new class extends Migration
         Schema::create('enrolls', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('plan');
-            $table->unsignedBigInteger('trainer');
+            $table->unsignedBigInteger('trainer')->nullable();
             $table->unsignedBigInteger('user');
+            $table->string('name');
             $table->integer('status')->default(0);
             $table->boolean('payment')->default(false);
+            $table->boolean('admin')->default(false);
             $table->foreign('plan')->references('id')->on('plan');
-            $table->foreign('trainer')->references('id')->on('trainer');
             $table->foreign('user')->references('id')->on('users');
             $table->timestamps();
         });

@@ -1,3 +1,4 @@
+
 @extends('frontend.layout.main')
 
 @section('main-section')
@@ -34,7 +35,9 @@
                                 </div>
                             </div>
                         </div>
+                        
                     @endauth
+                    
                     </div>
                 </div>
                 </div>
@@ -43,7 +46,7 @@
 
     </section>
     <!-- Hero Section End -->
-
+  
     <!-- ChoseUs Section Begin -->
     <section class="choseus-section spad">
         <div class="container">
@@ -281,6 +284,7 @@
                 </div>
             </div>
         </div>
+        
     </section>
     <!-- Team Section End -->
    @endsection

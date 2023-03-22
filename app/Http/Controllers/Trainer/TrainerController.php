@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Trainer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
+use App\Models\Enroll;
 use App\Models\Trainer;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -89,6 +91,31 @@ class TrainerController extends Controller
  
     //      return redirect('viewtrainers')->with('success', 'Trainer added successfully.');
     //  }
+
+    public function approve(Request $request){
+        $id = $request->enroll_id;
+        $enroll = Enroll::find($id);
+
+        $enroll->status=1;
+        $enroll->save();
+        return redirect()->back()->with('success','Enroll approved successfully');
+    }
+    public function reject(Request $request){
+        $id = $request->enroll_id;
+        $enroll = Enroll::find($id);
+
+        $enroll->status=2;
+        $enroll->save();
+        return redirect()->back()->with('success','Enroll approved successfully');
+    }
+
+
+    public function dietplan($id){
+        $enroll = Enroll::find($id);
+        $customer = Customer::where('userid',$enroll->user)->first();
+        $trainer = trainer::where('id',$enroll->trainer)->first();
+        return view('trainer.dietplan',compact('customer','trainer'));
+    }
 
 }
 

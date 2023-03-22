@@ -66,7 +66,7 @@
                         @php
                             $trainer = DB::table('trainer')->where('id',$enroll->trainer)->first();
                         @endphp
-                        <td>{{ $trainer->name }}</td>
+                        <td>{{ $trainer->name ?? "No Trainer" }}</td>
                         @if ($enroll->status==0) 
                         <td>pending </td>
                         @else

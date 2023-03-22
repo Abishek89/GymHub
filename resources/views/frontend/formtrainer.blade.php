@@ -32,7 +32,7 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Fill Up Your Personal Details</h2>
-                    <form action="{{ route('trainer.enroll') }}" method="POST">
+                    <form action="{{ route('trainer.enroll') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                         <div class="row row-space">

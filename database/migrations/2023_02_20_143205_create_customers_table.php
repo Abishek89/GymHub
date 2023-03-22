@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('userid');
             $table->string('name');
             $table->string('image');
-            $table->date('DOB');
+            $table->string('DOB');
             $table->string('gender');
             $table->integer('height');
             $table->integer('weight');

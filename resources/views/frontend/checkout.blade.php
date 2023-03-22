@@ -135,15 +135,15 @@
                           </tbody>
                         </table>
       
-                        <div class="border p-3 mb-3">
+                        {{-- <div class="border p-3 mb-3">
                           <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsebank" role="button" aria-expanded="false" aria-controls="collapsebank">Khalti Money Transfer</a></h3>
       
-                          <div class="collapse" id="collapsebank">
+                          {{-- <div class="collapse" id="collapsebank">
                             <div class="py-2">
                               <p class="mb-0">Make your payment directly into our Khalti. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
                             </div>
-                          </div>
-                        </div>
+                          </div> 
+                        </div> --}}
       
                       </div>
                     </div>

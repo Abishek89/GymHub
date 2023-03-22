@@ -25,7 +25,7 @@
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-            <a class="sidebar-brand brand-logo" href="{{ route('trainerdashboard') }}"><img src="/adminbootstrap/images/logo.png" alt="logo" /></a>
+            <a class="sidebar-brand brand-logo" href="{{ url('admindashboard') }}"><img src="/adminbootstrap/images/logo.png" alt="logo" /></a>
           </div>
           <ul class="nav">
             <li class="nav-item profile">
@@ -45,7 +45,7 @@
             <li class="nav-item nav-category">
             </li>
             <li class="nav-item menu-items">
-              <a class="nav-link" href="{{ route('trainerdashboard') }}">
+              <a class="nav-link" href="{{ url('trainer') }}">
                 <span class="menu-icon">
                   <i class="mdi mdi-speedometer"></i>
                 </span>
@@ -53,26 +53,27 @@
               </a>
             </li>
             <li class="nav-item menu-items">
-              <a class="nav-link" href="{{ route('member') }}">
+              <a class="nav-link" data-toggle="collapse" href="#members" aria-expanded="false" aria-controls="members">
                 <span class="menu-icon">
-                  <i class="mdi mdi-contacts"></i>
+                  <i class="mdi mdi-laptop"></i>
                 </span>
                 <span class="menu-title">Members</span>
+                <i class="menu-arrow"></i>
               </a>
-            </li>
-            <li class="nav-item menu-items">
-              <a class="nav-link" href="#">
-                <span class="menu-icon">
-                  <i class="mdi mdi-contacts"></i>
-                </span>
-                <span class="menu-title">Services</span>
-              </a>
+              <div class="collapse" id="members">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="{{ route('member') }}">All Members</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ route('active') }}">Active members</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ route('inactive') }}">Inactive Members</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ route('enquiry') }}">Enquiry</a></li>
+                </ul>
+              </div>
             </li>
           </ul>
         </nav>
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
-          <!-- partial:partials/_navbar.html -->
+          <!-- partial:partials/_navbar.html-->
           <nav class="navbar p-0 fixed-top d-flex flex-row">
             <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
               <ul class="navbar-nav navbar-nav-right">
@@ -99,7 +100,7 @@
                       </div>
                     </a>
                     <a href="{{ route('logout') }}" class="dropdown-item preview-item" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
+                        document.getElementById('logout-form').submit();">
                       <div class="preview-thumbnail">
                         <div class="preview-icon bg-dark rounded-circle">
                           <i class="mdi mdi-logout text-danger"></i>

@@ -52,13 +52,26 @@
     <section class="shop-section spad">
         <div class="container">
             <div class="row">
+                <div class="col-lg-12">
+                    <div class="team-title">
+                        <div class="section-title">
+                            <span>Our Team</span>
+                            <h2>TRAIN WITH EXPERTS</h2>
+                        </div>
+                    </div>
+                    <form action="{{ route('enroll.withouttreiner') }}" method="post">
+                        @csrf
+                        <input type="hidden" value="{{ $plan->id }}"  name="planid">
+                    <button type="submit" class="primary-btn btn-normal appoinment-btn">Enroll Without Trainer</button>
+                </form>
+                </div>
                 @foreach ($trainers as $trainers)
                     
 
                     <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="product-item">
                             <div class="position-relative">
-                                <img class="img-fluid" src="/landbootstrap/img/team/team-1.jpg" alt="">
+                                <img class="img-fluid" src="{{ URL::to('/uploads/trainers/'.$trainers->image) }}" alt="">
                                 <div class="product-overlay">
    
                                     <a href="{{ route('trainer.details',['planid' => $plan->id, 'trainerid' => $trainers->id]) }}" class="btn btn-square btn-secondary rounded-circle m-1"><i class="fa fa-arrow-right"></i></a>

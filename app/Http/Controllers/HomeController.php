@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Discussion;
 use App\Models\Plan;
 use App\Models\Trainer;
 use App\Models\User;
@@ -39,7 +40,7 @@ class HomeController extends Controller
                }  
                else{
                    
-               return route('trainerdashboard');
+               return view('trainer.trainer');
 
                }
            }
@@ -75,9 +76,17 @@ class HomeController extends Controller
         // );
 
         $customers = new Customer();
+        
         $customers->userid = Auth::user()->id;
         $customers->name=$request->name;
-        $customers->image=$request->image;
+    
+            $file = $request->file('image');
+            
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('uploads/customers/', $filename);
+            $customers->image = $filename;
+    
         $customers->DOB=$request->birthday;
         $customers->gender=$request->gender;
         $customers->height=$request->height;
@@ -85,6 +94,10 @@ class HomeController extends Controller
         $customers->email=$request->email;
         $customers->phone=$request->phone;
         $customers->save();
+        $discussion = new Discussion();
+            $discussion->Admin = 1;
+            $discussion->trainee = Auth::user()->id;
+            $discussion->save();
 
         $user=User::where('id',Auth::user()->id)->first();
         $user->verified=true;
@@ -92,19 +105,21 @@ class HomeController extends Controller
         
         return view('frontend.index');
 
-
-       
-
-    } 
-
-
+    }
 
 
     function enrolltrainer(Request $request){
 
         $trainer = new Trainer();
         $trainer-> name = $request-> name;
-        $trainer-> image = $request-> image;
+        if($request->hasfile('image'))
+        {
+            $file = $request->file('image');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('uploads/trainers/', $filename);
+            $trainer->image = $filename;
+        }
         $trainer-> DOB = $request-> birthday;
         $trainer-> gender= $request-> gender;
         $trainer-> height= $request-> height;
@@ -116,6 +131,7 @@ class HomeController extends Controller
 
         $user= User::where('id',Auth::user()->id)->first();
         $user->verified= true;
+        $user->save();
 
         return redirect()->route('trainerdashboard');
 

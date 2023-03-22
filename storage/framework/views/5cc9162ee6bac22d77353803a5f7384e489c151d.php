@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="<?php echo e(asset('/landbootstrap/css/magnific-popup.css')); ?>" type="text/css">
     <link rel="stylesheet" href="<?php echo e(asset('/landbootstrap/css/slicknav.min.css')); ?>" type="text/css">
     <link rel="stylesheet" href="<?php echo e(asset('/landbootstrap/css/style.css')); ?>" type="text/css">
+    
 </head>
 
     <!-- Page Preloder -->
@@ -48,7 +49,8 @@
                                 <li><a href="<?php echo e(url('shop')); ?>">Shop</a></li>
                                 <li><a href="<?php echo e(route('enrollpage')); ?>">Enroll</a></li>
                                 <li><a href="<?php echo e(url('team')); ?>">Our Team</a></li>
-                                
+                                <li><a href="<?php echo e(route('feedback')); ?>">Feedback</a></li>
+                                <li><a href="<?php echo e(route('discussion')); ?>">Chat</a></li>
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">
                                         <li><a href="<?php echo e(url('bmi-calculator')); ?>">Bmi calculate</a></li>
@@ -71,18 +73,20 @@
                         </nav>
                     </div>
                          <div class="col-lg-2">
-                            <div class="top-option">
+                            <div class="top-option"> 
                                 <div class="to-social">
                                    
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-instagram"></i></a>
                                     <?php if(auth()->guard()->check()): ?>
                                     <a href="<?php echo e(route('cart')); ?>"><i class="fa fa-shopping-cart"></i></a>
-                                    <a href="#"><i class="fa fa-user"></i></a>
+                                    <a href="#"><i class="fa fa-user"></i></a> 
+                                    
+                                    
                                     <?php endif; ?>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                 </div>
             </div>
         

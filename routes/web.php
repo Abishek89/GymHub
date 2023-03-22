@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\chatconroller;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Plan\PlanController;
 use App\Http\Controllers\Expenses\ExpensesController;
@@ -38,7 +39,7 @@ Route::get('/aboutus', [FrontendController::class, 'aboutus'])->name('aboutus');
 Route::get('/services', [FrontendController::class, 'services'])->name('services');
 Route::get('/team', [FrontendController::class, 'team'])->name('team');
 Route::get('/gallery', [FrontendController::class, 'gallery'])->name('gallery');
-Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+Route::get('/feedback', [FrontendController::class, 'feedback'])->name('feedback');
 Route::get('/bmi-calculator', [FrontendController::class, 'bmicalculator'])->name('bmi-calculator');
 Route::get('/shop', [FrontendController::class, 'shop'])->name('shop');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -46,6 +47,9 @@ Route::post('/home', [HomeController::class, 'enrolldata'])->name('add.enrollfor
 Route::post('/trainer/enroll', [HomeController::class, 'enrolltrainer'])->name('trainer.enroll');
 Route::get('/enrollpage', [FrontendController::class, 'enrollpage'])->name('enrollpage');
 Route::get('/enrollpage/{id}', [FrontendController::class, 'payment'])->name('payment');
+Route::post('/tariner/approveenroll',[TrainerController::class,'approve'])->name('approveenroll');
+Route::post('/tariner/rejectenroll',[TrainerController::class,'reject'])->name('rejectenroll');
+
 
 
 
@@ -53,6 +57,22 @@ Route::get('/enrollpage/{id}', [FrontendController::class, 'payment'])->name('pa
 
 //admin route for admin dashboard
 Route::get('/admindashboard', [AdminController::class, 'dashboard'])->name('admindashboard');
+Route::get('/members', [AdminController::class, 'members'])->name('members');
+Route::get('/enquiry', [AdminController::class, 'enquiry'])->name('enquiry');
+Route::get('/activemembers', [AdminController::class, 'active'])->name('activemembers');
+Route::get('/inactivemembers', [AdminController::class, 'inactive'])->name('inactivemembers');
+
+//diet plan
+Route::get('/trainer/dietplan/{id}', [TrainerController::class, 'dietplan'])->name('dietplan');
+Route::Post('/user/withouttreiner', [FrontendController::class, 'withouttreiner'])->name('enroll.withouttreiner');
+
+
+
+
+Route::post('/admin/approveenroll',[AdminController::class,'approve'])->name('admin.approveenroll');
+Route::post('/admin/rejectenroll',[AdminController::class,'reject'])->name('admin.rejectenroll');
+
+
 
 //admin route for create plan
 Route::get('/planview/createplan', [PlanController::class, 'create'])->name('createplan');
@@ -114,6 +134,11 @@ Route::post('trainee/enroll',[FrontendController::class,'enroll'])->name('traine
 //for trainer dashboard
 Route::get('/trainer', [TrainerdashController::class, 'trainerdashboard'])->name('trainerdashboard');
 Route::get('/trainer/member', [TrainerdashController::class, 'member'])->name('member');
+Route::get('/trainer/active', [TrainerdashController::class, 'active'])->name('active');
+Route::get('/trainer/inactive', [TrainerdashController::class, 'inactive'])->name('inactive');
+Route::get('/trainer/enquiry', [TrainerdashController::class, 'enquiry'])->name('enquiry');
+Route::post('/trainer/adddietplan', [TrainerdashController::class, 'adddiet'])->name('add.dietplan');
+
 
 
 
@@ -141,3 +166,13 @@ Route::get('/thankyou', [FrontendController::class, 'thankyou'])->name('thankyou
 Route::post('/khalti/payment/verify',[PaymentController::class,'verifyPayment'])->name('khalti.verifyPayment');
 
 Route::post('/khalti/payment/store',[PaymentController::class,'storePayment'])->name('khalti.storePayment');
+
+
+
+//chat
+Route::get('/chat', [chatconroller::class, 'chat'])->name('chat');
+Route::get('/user/chat',[chatconroller::class,'discussion'])->name('discussion');
+Route::get('/admin/selectchat/{id}',[chatconroller::class,'selectchat'])->name('select_chat');
+Route::post('/admin/storechat',[chatconroller::class,'storechat'])->name('admin.storemessage');
+
+

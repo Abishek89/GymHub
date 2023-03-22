@@ -32,7 +32,7 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Fill Up Your Personal Details</h2>
-                    <form action="{{ route('add.enrollform') }}" method="POST">
+                    <form action="{{ route('add.enrollform') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row row-space">
                             <div class="col-2">
@@ -98,7 +98,7 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Image *</label>
-                                    <input class="input--style-4" type="file" id="myFile" name="image" required>
+                                    <input class="input--style-4" type="file" name="image" required>
                                 </div>
                             </div>
                         </div>       

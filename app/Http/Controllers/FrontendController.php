@@ -11,6 +11,7 @@ use App\Models\Products;
 use App\Models\Trainer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Ui\Presets\React;
 
 use function GuzzleHttp\Promise\all;
 
@@ -64,6 +65,11 @@ class FrontendController extends Controller
 
     public function team(){
         return view('frontend.team');
+
+    }
+
+    public function feedback(){
+        return view('frontend.feedback');
 
     }
 
@@ -126,10 +132,6 @@ class FrontendController extends Controller
         $cart->price = $total_price;
         $cart->save();
         return redirect()->route('shop')->with('success','item added successfully');
-
-
-       
-
     } 
 
 
@@ -164,6 +166,7 @@ class FrontendController extends Controller
         $order->email = Auth::user()->id;
         $order->phone = $request->phone;
         $order->save();
+        return redirect('thankyou');
 
         $cart_item = cart::where('user_id',Auth::user()->id)->where('status',false)->get();
         foreach($cart_item as $cart){
@@ -174,7 +177,7 @@ class FrontendController extends Controller
     }
 
 
-
+//enroll
     function enroll(Request $request){
 
         $enroll = new Enroll();
@@ -182,7 +185,19 @@ class FrontendController extends Controller
         $enroll->trainer = $request->trainer_id;
         $enroll->user = Auth::user()->id;
         $enroll->status = 0;
+        $enroll->name = Auth::user()->name;
         $enroll->save();
         return redirect('enrollpage');
+    }
+
+    function withouttreiner(Request $request){
+        $enroll = new Enroll();
+        $enroll ->plan = $request->planid;
+        $enroll->user = Auth::user()->id;
+        $enroll->name = Auth::user()->name;
+        $enroll->status = 0;
+        $enroll->save();
+        return redirect('enrollpage');
+
     }
 }

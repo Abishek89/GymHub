@@ -27,9 +27,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="section-title">
-                        <span>Our Team</span>
-                        <h2>TRAIN WITH EXPERTS</h2>
+                    <div class="team-title">
+                        <div class="section-title">
+                            <span>Our Team</span>
+                            <h2>TRAIN WITH EXPERTS</h2>
+                        </div>
                     </div>
                 </div>
             </div>

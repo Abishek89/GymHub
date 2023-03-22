@@ -20,26 +20,29 @@
     <!-- Breadcrumb Section End -->
 
     <!-- Class Details Section Begin -->
+    {{-- @php
+        $trainer=DB::table('trainer')->get();
+    @endphp --}}
     <section class="team-section team-page spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="team-title">
                         <div class="section-title">
-                            <h2>TRAIN WITH EXPERTS</h2>
+                            <h2>TRAINER DETAILS</h2>
                         </div>
-                        <a href="#" class="primary-btn btn-normal appoinment-btn">Personal Training</a>
                     </div>
                 </div>
             </div>
             <div class="row">
+                {{-- @foreach ($trainer as $trainer ) --}}
                 <div class="col-lg-8">
                     <div class="class-details-text">
                         <div class="cd-trainer">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="cd-trainer-pic">
-                                        <img src="/landbootstrap/img/team/team-1.jpg" alt="">
+                                        <img src="{{ URL::to('/uploads/trainers/'.$trainer->image) }}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-md-5">
@@ -72,6 +75,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- @endforeach --}}
         </div>
     </section>
     <!-- Class Details Section End -->

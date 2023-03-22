@@ -48,7 +48,7 @@ class PaymentController extends Controller
     }
 
 
-
+    //admin side payment
     public function store(Request $request){
         $payment=new Payment();
         $payment->paymentname=$request->paymentname;
@@ -58,6 +58,7 @@ class PaymentController extends Controller
         $payment->save();
         return redirect('viewpayment');
     }
+
 
     public function add(){
         $payment=Payment::all();

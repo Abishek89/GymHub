@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('/landbootstrap/css/magnific-popup.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('/landbootstrap/css/slicknav.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('/landbootstrap/css/style.css') }}" type="text/css">
+    {{-- <link rel="stylesheet" href="{{ asset('/chatbootstrap/style.css') }}"> --}}
 </head>
 
     <!-- Page Preloder -->
@@ -48,7 +49,8 @@
                                 <li><a href="{{ url('shop') }}">Shop</a></li>
                                 <li><a href="{{ route('enrollpage') }}">Enroll</a></li>
                                 <li><a href="{{ url('team') }}">Our Team</a></li>
-                                
+                                <li><a href="{{ route('feedback') }}">Feedback</a></li>
+                                <li><a href="{{ route('discussion') }}">Chat</a></li>
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">
                                         <li><a href="{{ url('bmi-calculator') }}">Bmi calculate</a></li>
@@ -70,18 +72,20 @@
                         </nav>
                     </div>
                          <div class="col-lg-2">
-                            <div class="top-option">
+                            <div class="top-option"> 
                                 <div class="to-social">
                                    
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-instagram"></i></a>
                                     @auth
                                     <a href="{{ route('cart') }}"><i class="fa fa-shopping-cart"></i></a>
-                                    <a href="#"><i class="fa fa-user"></i></a>
+                                    <a href="#"><i class="fa fa-user"></i></a> 
+                                    
+                                    
                                     @endauth
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                 </div>
             </div>
         

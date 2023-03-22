@@ -32,7 +32,9 @@
                                 </div>
                             </div>
                         </div>
+                        
                     <?php endif; ?>
+                    
                     </div>
                 </div>
                 </div>
@@ -41,7 +43,7 @@
 
     </section>
     <!-- Hero Section End -->
-
+  
     <!-- ChoseUs Section Begin -->
     <section class="choseus-section spad">
         <div class="container">
@@ -279,6 +281,7 @@
                 </div>
             </div>
         </div>
+        
     </section>
     <!-- Team Section End -->
    <?php $__env->stopSection(); ?>
