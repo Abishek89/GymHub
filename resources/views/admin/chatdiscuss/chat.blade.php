@@ -16,9 +16,6 @@
     <div class="col app-chat-contacts app-sidebar flex-grow-0 overflow-hidden border-end" id="app-chat-contacts">
       <div class="sidebar-header pt-3 px-3 mx-1">
         <div class="d-flex align-items-center me-3 me-lg-0">
-          <div class="flex-shrink-0 avatar avatar-online me-2" data-bs-toggle="sidebar" data-overlay="app-overlay-ex" data-target="#app-chat-sidebar-left">
-            <img class="user-avatar rounded-circle cursor-pointer" src="/adminsection/assets/img/avatars/1.png" alt="Avatar">
-          </div>
           <div class="flex-grow-1 input-group input-group-merge rounded-pill ms-1">
             <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search fs-4"></i></span>
             <input type="text" class="form-control chat-search-input" placeholder="Search..." aria-label="Search..." aria-describedby="basic-addon-search31">
@@ -36,10 +33,7 @@
             $trainee=DB::table('customers')->where('userid', $discussions->trainee)->first();
       
           @endphp
-          <li class="chat-contact-list-item chat-contact-list-item-title">
-            <h5 class="text-primary mb-0">Chats</h5>
-          </li>
-          <li class="chat-contact-list-item active">
+          <li class="chat-contact-list-item ">
             <a class="d-flex align-items-center" href="{{ route('select_chat',$discussions->id) }}">
               <div class="flex-shrink-0 avatar avatar-offline">
                 <img src="{{URL::to('/uploads/customers/'.$trainee->image)}}" alt="Avatar" class="rounded-circle">
@@ -57,13 +51,13 @@
     <!-- /Chat -->
 
     <!-- Chat History -->
-    @if (!empty($chat))
-    @php
-        $user = DB::table('customers')->where('userid',$selected_chat->trainee)->first();
-    @endphp
     <div class="col app-chat-history">
       <div class="chat-history-wrapper">
         <div class="chat-history-header border-bottom">
+          @if (!empty($chat))
+    @php
+        $user = DB::table('customers')->where('userid',$selected_chat->trainee)->first();
+    @endphp
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex overflow-hidden align-items-center">
               <i class="bx bx-menu bx-sm cursor-pointer d-lg-none d-block me-2" data-bs-toggle="sidebar" data-overlay data-target="#app-chat-contacts"></i>
@@ -75,6 +69,9 @@
                 <small class="user-status text-muted">{{ $user->phone }}</small>
               </div>
             </div>
+            <div class="d-flex align-items-center">
+            </div>
+        </div>
         </div>
         
   
@@ -90,7 +87,7 @@
                   </div>
                   <div class="text-end text-muted mt-1">
                     <i class='bx bx-check-double text-success'></i>
-                    <small>10:00 AM</small>
+                    <small>{{ $chat->created_at }}</small>
                   </div>
                 </div>
                 <div class="user-avatar flex-shrink-0 ms-3">
@@ -105,7 +102,7 @@
               <div class="d-flex overflow-hidden">
                 <div class="user-avatar flex-shrink-0 me-3">
                   <div class="avatar avatar-sm">
-                    <img src="/adminsection/assets/img/avatars/2.png" alt="Avatar" class="rounded-circle">
+                    <img src="{{ URL::to('uploads/customers/'.$user->image) }}" alt="Avatar" class="rounded-circle">
                   </div>
                 </div>
                 <div class="chat-message-wrapper flex-grow-1">
@@ -113,7 +110,7 @@
                     <p class="mb-0">{{ $chat->message }}</p>
                   </div>
                   <div class="text-muted mt-1">
-                    <small>10:02 AM</small>
+                    <small>{{ $chat->created_at }}</small>
                   </div>
                 </div>
               </div>
@@ -128,7 +125,6 @@
           <form class=" d-flex justify-content-between align-items-center" action="{{ route('admin.storemessage') }}" method="POST">
             @csrf
         <input type="hidden" value="{{ $selected_chat->id }}" name="selected_chat">
-
             <input class="form-control message-input border-0 me-3 shadow-none" placeholder="Type your message here..." name="chat">
             <div class="message-actions d-flex align-items-center">
               <button class="btn btn-primary d-flex send-msg-btn" type="submit">
@@ -138,48 +134,17 @@
             </div>
           </form>
         </div>
+        @else
+        No Chat Found
+        @endif
       </div>
     </div>
-    @else
-    <p>hello</p>
-    @endif
     <!-- /Chat History -->
-
-    <!-- Sidebar Right -->
-    <div class="col app-chat-sidebar-right app-sidebar overflow-hidden" id="app-chat-sidebar-right">
-      <div class="sidebar-header d-flex flex-column justify-content-center align-items-center flex-wrap p-4 mt-2">
-        <div class="avatar avatar-xl avatar-online">
-          <img src="/adminsection/assets/img/avatars/2.png" alt="Avatar" class="rounded-circle">
-        </div>
-        <h6 class="mt-3 mb-1">Felecia Rower</h6>
-        <small class="text-muted">NextJS Developer</small>
-        <i class="bx bx-x bx-sm cursor-pointer close-sidebar me-1 fs-4 d-block" data-bs-toggle="sidebar" data-overlay data-target="#app-chat-sidebar-right"></i>
-      </div>
-      <div class="sidebar-body px-4 pb-4">
-        <div class="my-4">
-          <span class="text-muted text-uppercase">Personal Information</span>
-          <ul class="list-unstyled d-grid gap-2 mt-2">
-            <li class="d-flex align-items-center">
-              <i class='bx bx-envelope'></i>
-              <span class="align-middle ms-2">josephGreen@email.com</span>
-            </li>
-            <li class="d-flex align-items-center">
-              <i class='bx bx-phone-call'></i>
-              <span class="align-middle ms-2">+1(123) 456 - 7890</span>
-            </li>
-            <li class="d-flex align-items-center">
-              <i class='bx bx-time-five'></i>
-              <span class="align-middle ms-2">Mon - Fri 10AM - 8PM</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!-- /Sidebar Right -->
 
     <div class="app-overlay"></div>
   </div>
 </div>
+
 
 
             
@@ -192,8 +157,3 @@
         </div>
         <!-- Content wrapper --> 
 @endsection
-
-
-
-
-

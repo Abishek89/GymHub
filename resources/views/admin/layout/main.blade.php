@@ -40,7 +40,20 @@
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="/adminsection/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="/adminsection/assets/vendor/libs/typeahead-js/typeahead.css" />
-    <link rel="stylesheet" href="/adminsection/assets/vendor/libs/apex-charts/apex-charts.css" />
+    {{-- <link rel="stylesheet" href="/adminsection/assets/vendor/libs/apex-charts/apex-charts.css" /> --}}
+    {{-- <link rel="stylesheet" href="/adminsection/assets/vendor/libs/bootstrap-maxlength/bootstrap-maxlength.css" /> --}}
+    <link rel="stylesheet" href="/adminsection/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css">
+    <link rel="stylesheet" href="/adminsection/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css">
+    <link rel="stylesheet" href="/adminsection/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css">
+    <link rel="stylesheet" href="/adminsection/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css">
+    {{-- <link rel="stylesheet" href="/adminsection/assets/vendor/libs/select2/select2.css" />
+    --}}
+    <link rel="stylesheet" href="/adminsection/assets/vendor/libs/flatpickr/flatpickr.css" />
+    <!-- Row Group CSS -->
+    <link rel="stylesheet" href="/adminsection/assets/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css">
+
+    <!-- Form Validation -->
+    <link rel="stylesheet" href="/adminsection/assets/vendor/libs/formvalidation/dist/css/formValidation.min.css" /> 
 
     <!-- Page CSS -->
     <link rel="stylesheet" href="/adminsection/assets/vendor/css/pages/app-chat.css">
@@ -534,12 +547,36 @@
   <!-- Vendors JS -->
   <script src="/adminsection/assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
+    <!-- Vendors JS -->
+    <script src="/adminsection/assets/vendor/libs/bootstrap-maxlength/bootstrap-maxlength.js"></script>
+    <script src="/adminsection/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+
   <!-- Main JS -->
   <script src="/adminsection/assets/js/main.js"></script>
 
   <!-- Page JS -->
   <script src="/adminsection/assets/js/dashboards-analytics.js"></script>
   <script src="/adminsection/assets/js/app-chat.js"></script>
+  <script src="/adminsection/assets/js/app-user-list.js"></script>
+  <script src="/adminsection/assets/js/tables-datatables-basic.js"></script>
+
+  <!-- Flat Picker -->
+  <script src="/adminsection/assets/vendor/libs/moment/moment.js"></script>
+  <script src="/adminsection/assets/vendor/libs/flatpickr/flatpickr.js"></script>
+
+
+
+<script src="/adminsection/assets/vendor/libs/select2/select2.js"></script>
+
+
+<!-- Form Validation -->
+<script src="/adminsection/assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
+<script src="/adminsection/assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
+<script src="/adminsection/assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
+
+
+<script src="/adminsection/assets/vendor/libs/cleavejs/cleave.js"></script>
+<script src="/adminsection/assets/vendor/libs/cleavejs/cleave-phone.js"></script>
   @yield('content')
 </body>
 

@@ -33,7 +33,13 @@
                               <td>{{ $products->id }}</td>
                               <td>{{ $products->productname }}</td>
                               <td> Rs{{ $products->price }} </td>
-                              <td> <img src="{{ URL::to('/uploads/products/'.$products->image) }}" class="img-fluid"/> </td>
+                              <td>
+                                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                  <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Lilian Fuller">
+                                    <img src="{{ URL::to('/uploads/products/'.$products->image) }}" alt="Avatar" class="rounded-circle">
+                                  </li>
+                                </ul>
+                              </td>
                               <td> {{ $products->description }} </td>
                             <td>
                                 <a href="{{ route('editproduct', ['id' => $products->id])}}" class="btn btn-primary">Update</a>

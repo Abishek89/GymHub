@@ -27,7 +27,13 @@
                             @foreach ($gallery as $gallery ) 
                             <tr>
                               <td>{{ $gallery->id }}</td>
-                              <td> <img src="{{ URL::to('/uploads/gallery/'.$gallery->image) }}" class="img-fluid"/> </td>
+                              <td>
+                                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                  <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Lilian Fuller">
+                                    <img src="{{ URL::to('/uploads/gallery/'.$gallery->image) }}" alt="Avatar" class="rounded-circle">
+                                  </li>
+                                </ul>
+                              </td>
                             <td> 
                               <a href="{{ route('deletephoto', ['id' => $gallery->id])}}" class="btn btn-primary">Delete</a> 
                             </td>
