@@ -26,7 +26,7 @@
   
     @extends('frontend.layout.main')
 
-    @section('main-section')
+    @section('content')
 
         <section class="shop-section spad">  
             <div class="site-section">

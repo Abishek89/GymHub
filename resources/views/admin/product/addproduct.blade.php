@@ -1,14 +1,11 @@
 @extends('admin.layout.main')
 
 @section('content') 
-<div class="main-panel">
-    <div class="content-wrapper">
-      <div class="page-header">
-        <h3 class="page-title">Enter Details of Products</h3>
-      </div>
-      <div class="row">
-        <div class="col-12 grid-margin">
-            <div class="card">
+<div class="container-xxl flex-grow-1 container-p-y">          
+  
+  <!-- Basic Bootstrap Table -->
+  <div class="card">
+    <h5 class="card-header">Add Plan Details</h5>
               <div class="card-body">
                 <form class="form-sample" action="{{ route('addproduct') }}" method="POST" enctype="multipart/form-data" >
                   @csrf
@@ -22,6 +19,7 @@
                       </div>
                     </div>
                   </div>
+                  <br>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
@@ -32,6 +30,7 @@
                       </div>
                     </div>
                   </div>
+                  <br>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
@@ -42,6 +41,7 @@
                       </div>
                     </div>
                   </div>
+                  <br>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
@@ -52,6 +52,7 @@
                       </div>
                     </div>
                   </div>
+                  <br>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
@@ -62,9 +63,12 @@
                       </div>
                     </div>
                   </div>
+                  <br>
                   <div class="row">
                   <div class="col-sm-10">
                   <button type="submit" class="btn btn-primary mr-1">Submit</button>
+                  &nbsp;
+                  &nbsp;
                   <a href="/viewproduct" class="btn btn-primary mr-1">Cancel</a>
                   </div>
                   </div>
@@ -76,3 +80,8 @@
       </div>
 </div>
   @endsection
+
+{{-- <div class="col-12">
+<label class="form-label" for="collapsible-address">Price</label>
+<textarea name="collapsible-address" class="form-control" id="collapsible-address" rows="2" placeholder="1456, Mall Road"></textarea>
+</div> --}}

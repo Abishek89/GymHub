@@ -1,7 +1,9 @@
-
 @extends('frontend.layout.main')
 
-@section('main-section')
+@section('content')
+<link rel="stylesheet" href="/chatbootstrap/assets/css/chat.css">
+<link rel="stylesheet" href="/chatbootstrap/style.css">
+<link rel="stylesheet" href="/chatbootstrap/assets/css/typing.css">
 
     <!-- Hero Section Begin -->
     <section class="hero-section">
@@ -37,13 +39,11 @@
                         </div>
                         
                     @endauth
-                    
                     </div>
                 </div>
                 </div>
             </div>
         </div>
-
     </section>
     <!-- Hero Section End -->
   
@@ -194,15 +194,10 @@
                             @endif</span>
                         </div>
                         <ul>
-                            <li>Unlimited equipments @if (
-                                $plan->equipment==1)
+                            <li>Refundable @if (
+                                $plan->refundable==1)
                                 ✅
                                 @else ❌
-                            @endif</li>
-                            <li>Personal trainer @if (
-                                $plan->trainer==1)
-                                ✅   
-                            @else ❌ 
                             @endif</li>
                             <li>Admission Fee @if (
                                 $plan->admission==1)
@@ -272,7 +267,7 @@
             <div class="row">
                 <div class="ts-slider owl-carousel">
                     @foreach ($trainer as $member )
-                    <div class="col-lg-4">
+                    <div class="col-lg-12">
                         <div class="ts-item set-bg" data-setbg="{{ URL::to('/uploads/trainers/'.$member->image) }}">
                             <div class="ts_text">
                                 <h4>{{ $member->name }}</h4>
@@ -287,4 +282,6 @@
         
     </section>
     <!-- Team Section End -->
+    <script src="/chatbootstrap/assets/js/Chat.js"></script>
+    <script src="/chatbootstrap/app.js"></script>
    @endsection

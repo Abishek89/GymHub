@@ -14,9 +14,8 @@ class PlanController extends Controller
                 'planname' => 'required',
                 'package'  => 'required',
                 'price'    => 'required',
-                'equipment'    => 'required',
+                'refundable'    => 'required',
                 'admission'    => 'required',
-                'trainer'    => 'required',
 
             ]
         );
@@ -25,9 +24,8 @@ class PlanController extends Controller
         $plan->planname=$request->planname;
         $plan->package=$request->package;
         $plan->price=$request->price;
-        $plan->equipment=$request->equipment;
+        $plan->refundable=$request->refundable;
         $plan->admission=$request->admission;
-        $plan->trainer=$request->trainer;
         $plan->save();
         return redirect('/planview');
 
@@ -68,9 +66,8 @@ class PlanController extends Controller
         $plan->planname=$request->planname;
         $plan->package=$request->package;
         $plan->price=$request->price;
-        $plan->equipment=$request->equipment;
+        $plan->refundable=$request->refundable;
         $plan->admission=$request->admission;
-        $plan->trainer=$request->trainer;
         $plan->update();
 
         return redirect('planview')->with('success', 'plan added successfully.');

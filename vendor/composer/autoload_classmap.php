@@ -43,6 +43,7 @@ return array(
     'App\\Models\\Discussion' => $baseDir . '/app/Models/Discussion.php',
     'App\\Models\\Enroll' => $baseDir . '/app/Models/Enroll.php',
     'App\\Models\\Expenses' => $baseDir . '/app/Models/Expenses.php',
+    'App\\Models\\Feedback' => $baseDir . '/app/Models/Feedback.php',
     'App\\Models\\Gallery' => $baseDir . '/app/Models/Gallery.php',
     'App\\Models\\Order' => $baseDir . '/app/Models/Order.php',
     'App\\Models\\Payment' => $baseDir . '/app/Models/Payment.php',

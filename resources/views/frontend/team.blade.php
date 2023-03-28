@@ -1,6 +1,6 @@
 @extends('frontend.layout.main')
 
-@section('main-section')
+@section('content')
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="landbootstrap/img/breadcrumb-bg.jpg">
         <div class="container">
@@ -43,9 +43,9 @@
                             <h4>{{ $member->name }}</h4>
                             <span>Gym Trainer</span>
                             <div class="tt_social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=100082720417405"><i class="fa fa-facebook"></i></a>
+                                <a href="https://twitter.com/i_m_abishekk"><i class="fa fa-twitter"></i></a>
+                                <a href="https://www.instagram.com/i.m.abishekk/"><i class="fa fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,7 @@
-<?php $__env->startSection('main-section'); ?>
+<?php $__env->startSection('content'); ?>
+<link rel="stylesheet" href="/chatbootstrap/assets/css/chat.css">
+<link rel="stylesheet" href="/chatbootstrap/style.css">
+<link rel="stylesheet" href="/chatbootstrap/assets/css/typing.css">
 
     <!-- Hero Section Begin -->
     <section class="hero-section">
@@ -34,13 +37,11 @@
                         </div>
                         
                     <?php endif; ?>
-                    
                     </div>
                 </div>
                 </div>
             </div>
         </div>
-
     </section>
     <!-- Hero Section End -->
   
@@ -191,15 +192,10 @@
                             <?php endif; ?></span>
                         </div>
                         <ul>
-                            <li>Unlimited equipments <?php if(
-                                $plan->equipment==1): ?>
+                            <li>Refundable <?php if(
+                                $plan->refundable==1): ?>
                                 ✅
                                 <?php else: ?> ❌
-                            <?php endif; ?></li>
-                            <li>Personal trainer <?php if(
-                                $plan->trainer==1): ?>
-                                ✅   
-                            <?php else: ?> ❌ 
                             <?php endif; ?></li>
                             <li>Admission Fee <?php if(
                                 $plan->admission==1): ?>
@@ -269,7 +265,7 @@
             <div class="row">
                 <div class="ts-slider owl-carousel">
                     <?php $__currentLoopData = $trainer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $member): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="col-lg-4">
+                    <div class="col-lg-12">
                         <div class="ts-item set-bg" data-setbg="<?php echo e(URL::to('/uploads/trainers/'.$member->image)); ?>">
                             <div class="ts_text">
                                 <h4><?php echo e($member->name); ?></h4>
@@ -284,5 +280,7 @@
         
     </section>
     <!-- Team Section End -->
+    <script src="/chatbootstrap/assets/js/Chat.js"></script>
+    <script src="/chatbootstrap/app.js"></script>
    <?php $__env->stopSection(); ?>
 <?php echo $__env->make('frontend.layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/abishek/Desktop/Workspace/GymHub/resources/views/frontend/index.blade.php ENDPATH**/ ?>

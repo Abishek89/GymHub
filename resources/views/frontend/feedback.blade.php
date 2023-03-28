@@ -1,6 +1,6 @@
 @extends('frontend.layout.main')
 
-@section('main-section') 
+@section('content') 
   <!-- Breadcrumb Section Begin -->
   <section class="breadcrumb-section set-bg" data-setbg="/landbootstrap/img/breadcrumb-bg.jpg">
     <div class="container">
@@ -50,9 +50,9 @@
                         <h2>Provide your valuable Feedback</h2>
                     </div>
                     <div class="leave-comment">
-                        <form action="#">
-                            <input type="text" placeholder="Name">
-                            <textarea placeholder="Comment"></textarea>
+                        <form action="{{ route('user.feedback') }}" method="POST">
+                            @csrf
+                            <textarea placeholder="Comment" name="message"></textarea>
                             <button type="submit">Submit</button>
                         </form>
                     </div>

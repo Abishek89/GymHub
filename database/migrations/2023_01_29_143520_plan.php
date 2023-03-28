@@ -18,9 +18,8 @@ return new class extends Migration
             $table->string('planname');
             $table->string('package');
             $table->double('price');
-            $table->integer('equipment');
+            $table->integer('refundable');
             $table->integer('admission');
-            $table->integer('trainer');
             $table->timestamps();           
         });
     }

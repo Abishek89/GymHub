@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\cartcontroller;
 use App\Http\Controllers\chatconroller;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Plan\PlanController;
@@ -49,6 +50,32 @@ Route::get('/enrollpage', [FrontendController::class, 'enrollpage'])->name('enro
 Route::get('/enrollpage/{id}', [FrontendController::class, 'payment'])->name('payment');
 Route::post('/tariner/approveenroll',[TrainerController::class,'approve'])->name('approveenroll');
 Route::post('/tariner/rejectenroll',[TrainerController::class,'reject'])->name('rejectenroll');
+Route::get('/profile',[FrontendController::class,'userprofile'])->name('userprofile');
+Route::get('/profile',[FrontendController::class,'userprofile'])->name('userprofile');
+Route::get('/orderdetails',[FrontendController::class,'orderdetails'])->name('orderdetails');
+Route::get('admin/orderdetails',[FrontendController::class,'amminorderdetails'])->name('admin.orderdetails');
+
+Route::get('/profile/editprofile',[FrontendController::class,'editprofile'])->name('editprofile');
+Route::get('/profile/changepass',[FrontendController::class,'changepass'])->name('changepass');
+    
+
+Route::get('/user/items/{id}',[cartcontroller::class,'usersitem'])->name('user.ordereditem');
+Route::get('/admin/ordersitems/{id}',[cartcontroller::class,'adminorderitem'])->name('admin.ordereditem');
+
+
+Route::put('/user/items',[cartcontroller::class,'ship'])->name('admin.ship');
+
+
+
+
+
+Route::put('user/updateprofile',[FrontendController::class,'updateprofile'])->name('user.updateprofile');
+
+
+Route::post('/change-password', [FrontendController::class, 'updatePassword'])->name('password.update');
+Route::post('/user/feedback', [FrontendController::class, 'storefeedback'])->name('user.feedback');
+
+
 
 
 
@@ -58,7 +85,7 @@ Route::post('/tariner/rejectenroll',[TrainerController::class,'reject'])->name('
 //admin route for admin dashboard
 Route::get('/admindashboard', [AdminController::class, 'dashboard'])->name('admindashboard');
 Route::get('/members', [AdminController::class, 'members'])->name('members');
-Route::get('/enquiry', [AdminController::class, 'enquiry'])->name('enquiry');
+Route::get('/enquiry', [AdminController::class, 'enquiry'])->name('enquirymember');
 Route::get('/activemembers', [AdminController::class, 'active'])->name('activemembers');
 Route::get('/inactivemembers', [AdminController::class, 'inactive'])->name('inactivemembers');
 
@@ -150,7 +177,13 @@ Route::get('/shopsingle/{id}', [FrontendController::class, 'shopsingle'])->name(
 
 //add to cart
 Route::post('/addtocart', [FrontendController::class, 'addtocart'])->name('addtocart');
-Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
+Route::get('/customer/cart', [cartcontroller::class, 'cart'])->name('cart.index');
+// Route::post('/updatecart',[FrontendController::class,'updatecart'])->name('cart.store');
+// Route::post('/cart/update', 'FrontendController@store')->name('cart.store');
+
+Route::post('user/update/cart',[cartcontroller::class,'update'] )->name('cart.update');
+Route::delete('user/delete/cart',[cartcontroller::class,'delete'])->name('cart.delete');
+
 
 
 //checkout and thankyou
@@ -175,4 +208,9 @@ Route::get('/user/chat',[chatconroller::class,'discussion'])->name('discussion')
 Route::get('/admin/selectchat/{id}',[chatconroller::class,'selectchat'])->name('select_chat');
 Route::post('/admin/storechat',[chatconroller::class,'storechat'])->name('admin.storemessage');
 
+
+//accountsettings for admin
+Route::get('/userprofile', [AdminController::class, 'profile'])->name('profile');
+Route::get('/userprofile/changepassword', [AdminController::class, 'changepassword'])->name('changepassword');
+Route::get('/userprofile/editadmin', [AdminController::class, 'edit'])->name('edit');
 

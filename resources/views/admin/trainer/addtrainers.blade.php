@@ -1,14 +1,9 @@
 @extends('admin.layout.main')
 
 @section('content') 
-<div class="main-panel">
-    <div class="content-wrapper">
-      <div class="page-header">
-        <h3 class="page-title">Enter Details of Trainers</h3>
-      </div>
-      <div class="row">
-        <div class="col-12 grid-margin">
+<div class="container-xxl flex-grow-1 container-p-y">
             <div class="card">
+              <h5 class="card-header">Add Trainer Details</h5>
               <div class="card-body">
                 <form class="form-sample" action="{{ route('addtrainers') }}" method="POST" enctype="multipart/form-data" >
                   @csrf
@@ -22,6 +17,7 @@
                       </div>
                     </div>
                   </div>
+                  <br>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
@@ -32,6 +28,7 @@
                       </div>
                     </div>
                   </div>
+                  <br>
                   {{-- <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
@@ -53,6 +50,7 @@
                       </div>
                     </div>
                   </div>
+                  <br>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
@@ -63,10 +61,13 @@
                       </div>
                     </div>
                   </div>
+                  <br>
                   <div class="row">
                   <div class="col-sm-10">
                   <button type="submit" class="btn btn-primary mr-1">Submit</button>
-                  <button class="btn btn-dark">Cancel</button>
+                  &nbsp;
+                  &nbsp;
+                  <a href="/viewtrainers" class="btn btn-primary mr-1">Cancel</a>
                   </div>
                   </div>
                 </form>

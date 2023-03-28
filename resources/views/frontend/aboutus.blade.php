@@ -1,6 +1,6 @@
 @extends('frontend.layout.main')
 
-@section('main-section') 
+@section('content') 
   <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="landbootstrap/img/breadcrumb-bg.jpg">
         <div class="container">
@@ -129,20 +129,23 @@
                 </div>
             </div>
             <div class="ts_slider owl-carousel">
+                @foreach ($feedback  as $feedback)
+            @php
+                $user = DB::table('customers')->where('userid', $feedback->user_id)->first();
+            @endphp
                 <div class="ts_item">
                     <div class="row">
                         <div class="col-lg-12 text-center">
                             <div class="ti_pic">
-                                <img src="/landbootstrap/img/testimonial/testimonial-2.jpg" alt="">
+                                <img src="{{ URL::to('uploads/customers/'.$user->image) }}" alt="">
                             </div>
                             <div class="ti_text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt<br /> ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
-                                    gravida. Risus commodo<br /> viverra maecenas accumsan lacus vel facilisis.</p>
-                                <h5>Marshmello Gomez</h5>
+                                <p>{{ $feedback->message }}</p>
+                                <h5>{{ $user->name }}</h5>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -166,7 +169,7 @@
             <div class="row">
                 <div class="ts-slider owl-carousel">
                     @foreach ($trainer as $member )
-                    <div class="col-lg-4">
+                    <div class="col-lg-12">
                         <div class="ts-item set-bg" data-setbg="{{ URL::to('/uploads/trainers/'.$member->image) }}">
                             <div class="ts_text">
                                 <h4>{{ $member->name }}</h4>

@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\cart;
 use App\Models\Customer;
 use App\Models\Enroll;
+use App\Models\Feedback;
 use App\Models\Order;
 use App\Models\Plan;
 use App\Models\Products;
 use App\Models\Trainer;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Ui\Presets\React;
 
 use function GuzzleHttp\Promise\all;
@@ -31,8 +34,56 @@ class FrontendController extends Controller
 
     }
 
+    function updateprofile(Request $request){
+        $id = $request->id;
+        $user = User::find($id);
+        $customer = Customer::where('userid',$id)->first();
+
+        if($request->image != ""){
+            $file = $request->file('image');
+            
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('uploads/customers/', $filename);
+            $customer->image = $filename;
+
+            $customer->name = $request->name;
+            $customer->height = $request->height;
+            $customer->weight = $request->weight;
+            $customer->email = $request->email;
+            $customer->phone = $request->phone;
+            $customer->save();
+    
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->save();
+        }else{
+            $customer->name = $request->name;
+            $customer->height = $request->height;
+            $customer->weight = $request->weight;
+            $customer->email = $request->email;
+            $customer->phone = $request->phone;
+            $customer->save();
+    
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->save();
+        }
+        return redirect()->back();
+
+
+
+
+
+    }
+
     public function aboutus(){
-        return view('frontend.aboutus');
+        $feedback =  Feedback::latest()->take(4)->get();
+        return view('frontend.aboutus',compact('feedback'));
+
+    }
+
+    public function updatecart(Request $request){
 
     }
 
@@ -73,6 +124,50 @@ class FrontendController extends Controller
 
     }
 
+    public function storefeedback(Request $request){
+        
+        $feedback = new Feedback();
+        $feedback->user_id = Auth::user()->id;
+        $feedback->message = $request->message;
+        $feedback->save();
+        return redirect()->back();
+
+    }
+
+    public function userprofile(){
+        $user = Customer::where('userid',Auth::user()->id)->first();
+        return view('frontend.profile.userprofile',compact('user'));
+
+    }
+
+    public function editprofile(){
+        $user = Customer::where('userid',Auth::user()->id)->first();
+        return view('frontend.profile.editprofile',compact('user'));
+
+    }
+
+    // public function profileuser(){
+    //     return view('frontend.profile.profileuser');
+
+    // }
+
+    public function changepass(){
+        return view('frontend.profile.changepass');
+
+    }
+
+    public function orderdetails(){
+        $order = Order::where('user_id', Auth::user()->id)->latest()->get();
+        return view('frontend.orderdetails.orderdetails',compact('order'));
+
+    }
+
+    public function amminorderdetails(){
+        $order = Order::where('status',false)->get();
+        return view('admin.orderdetails.adminorderdetails',compact('order'));
+
+    }
+
     // public function enroll($id){
     //     $plan=Plan::find($id);
     //     return view('frontend.enrollform' ,compact('plan'));
@@ -98,22 +193,7 @@ class FrontendController extends Controller
     // } 
 
 
-    public function cart(){
-        if(Auth::check()){
-            $user_id = Auth::user()->id;
-            $cart_item= cart::where('user_id', $user_id)->where('status', false)->get();        
-            $items = [];
-            foreach($cart_item as $cart){
-                $item = Products::where('id',$cart->product_id)->first();
-                $item->totalprice = $cart->price;
-                $items[] = $item;
-            }
-            $total_Amount = array_sum(array_column($items, 'totalprice'));
-            return view('frontend.addtocart', compact('cart_item','total_Amount'));
-        }else{
-            return redirect()->route('login');
-        }
-    }
+
 
 
     public function addtocart(Request $request){
@@ -154,6 +234,7 @@ class FrontendController extends Controller
     function order(Request $request){
         
         $order = new Order();
+        $order->user_id = Auth::user()->id;
         $order->country = $request->country;
         $order->provience = $request->provience;
         $order->firstname = $request->fname;
@@ -166,7 +247,6 @@ class FrontendController extends Controller
         $order->email = Auth::user()->id;
         $order->phone = $request->phone;
         $order->save();
-        return redirect('thankyou');
 
         $cart_item = cart::where('user_id',Auth::user()->id)->where('status',false)->get();
         foreach($cart_item as $cart){
@@ -174,6 +254,8 @@ class FrontendController extends Controller
             $cart->status= true;
             $cart->save();
         }
+        return redirect('thankyou');
+
     }
 
 
@@ -199,5 +281,30 @@ class FrontendController extends Controller
         $enroll->save();
         return redirect('enrollpage');
 
+    }
+
+
+
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            // 'password' => 'required|confirmed|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_)).+$/',
+        ]);
+        
+        $user = Auth::user();
+        $currentPassword = $request->input('current_password');
+        $newPassword = $request->input('password');
+        
+        // Verify the current password before updating
+        if (!Hash::check($currentPassword, $user->password)) {
+            return back()->withErrors(['current_password' => 'The current password is incorrect.']);
+        }
+        
+        $user->update([
+            'password' => Hash::make($newPassword),
+        ]);
+        
+        return redirect()->back()->with('success', 'Your password has been updated successfully.');
     }
 }

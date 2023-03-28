@@ -14,6 +14,20 @@ class AdminController extends Controller
         return view('admin.admindashboard');
     }
 
+    public function profile(){
+        
+        return view('admin.profile.adminprofile');
+    }
+
+    public function changepassword(){
+        
+        return view('admin.profile.changepassword');
+    }
+
+    public function edit(){
+        
+        return view('admin.profile.editadmin');
+    }
 
 
     public function active(){

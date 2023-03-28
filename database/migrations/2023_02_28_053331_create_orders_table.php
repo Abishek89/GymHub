@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->boolean('status')->default(false);
             $table->boolean('payment')->default(false);
+            $table->unsignedBigInteger('user_id');
             $table->string('country');
             $table->string('provience');
             $table->string('firstname');
@@ -28,6 +29,7 @@ return new class extends Migration
             $table->integer('zip')->nullable();
             $table->string('email');
             $table->biginteger('phone');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
