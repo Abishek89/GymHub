@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BMIController;
 use App\Http\Controllers\cartcontroller;
 use App\Http\Controllers\chatconroller;
 use App\Http\Controllers\CustomerController;
@@ -42,6 +43,12 @@ Route::get('/team', [FrontendController::class, 'team'])->name('team');
 Route::get('/gallery', [FrontendController::class, 'gallery'])->name('gallery');
 Route::get('/feedback', [FrontendController::class, 'feedback'])->name('feedback');
 Route::get('/bmi-calculator', [FrontendController::class, 'bmicalculator'])->name('bmi-calculator');
+// Route::post('/bmi-calculator', [BMIController::class, 'calculatebmi'])->name('calculate-bmi');
+Route::post('/bmi-calculator', [BMIController::class, 'calculate'])->name('bmi.calculate');
+
+
+
+
 Route::get('/shop', [FrontendController::class, 'shop'])->name('shop');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::post('/home', [HomeController::class, 'enrolldata'])->name('add.enrollform');
@@ -50,10 +57,10 @@ Route::get('/enrollpage', [FrontendController::class, 'enrollpage'])->name('enro
 Route::get('/enrollpage/{id}', [FrontendController::class, 'payment'])->name('payment');
 Route::post('/tariner/approveenroll',[TrainerController::class,'approve'])->name('approveenroll');
 Route::post('/tariner/rejectenroll',[TrainerController::class,'reject'])->name('rejectenroll');
-Route::get('/profile',[FrontendController::class,'userprofile'])->name('userprofile');
+// Route::get('/profile',[FrontendController::class,'userprofile'])->name('userprofile');
 Route::get('/profile',[FrontendController::class,'userprofile'])->name('userprofile');
 Route::get('/orderdetails',[FrontendController::class,'orderdetails'])->name('orderdetails');
-Route::get('admin/orderdetails',[FrontendController::class,'amminorderdetails'])->name('admin.orderdetails');
+Route::get('admin/orderdetails',[CartController::class,'adminorderdetails'])->name('admin.orderdetails');
 
 Route::get('/profile/editprofile',[FrontendController::class,'editprofile'])->name('editprofile');
 Route::get('/profile/changepass',[FrontendController::class,'changepass'])->name('changepass');
@@ -64,6 +71,9 @@ Route::get('/admin/ordersitems/{id}',[cartcontroller::class,'adminorderitem'])->
 
 
 Route::put('/user/items',[cartcontroller::class,'ship'])->name('admin.ship');
+
+
+
 
 
 
@@ -143,6 +153,9 @@ Route::get('/deletetrainer/{id}', [TrainerController::class, 'delete'])->name('d
 Route::get('/viewtrainers/edittrainer/{id}',[TrainerController::class,'edit'])->name('edittrainer');
 Route::post('/viewtrainers/updatetrainer/{id}',[TrainerController::class,'update'])->name('updatetrainer');
 
+
+
+
 //admin route for message
 Route::get('/viewupload/uploadphoto', [GalleryController::class, 'upload'])->name('uploadphoto');
 Route::post('/viewupload/uploadphoto', [GalleryController::class, 'storephoto'])->name('storephoto');
@@ -165,6 +178,15 @@ Route::get('/trainer/active', [TrainerdashController::class, 'active'])->name('a
 Route::get('/trainer/inactive', [TrainerdashController::class, 'inactive'])->name('inactive');
 Route::get('/trainer/enquiry', [TrainerdashController::class, 'enquiry'])->name('enquiry');
 Route::post('/trainer/adddietplan', [TrainerdashController::class, 'adddiet'])->name('add.dietplan');
+Route::get('/trainer/profile', [TrainerdashController::class, 'trainerprofile'])->name('trainerprofile');
+Route::get('/trainer/profileedit', [TrainerdashController::class, 'profileedit'])->name('profileedit');
+Route::get('/trainer/trainerpass', [TrainerdashController::class, 'trainerpass'])->name('trainerpass');
+Route::put('/trainer/profileupdate',[TrainerdashController::class,'profileupdate'])->name('trainer.profileupdate');
+
+Route::post('/changepassword', [TrainerdashController::class, 'updatePass'])->name('password.updatepass');
+
+
+
 
 
 

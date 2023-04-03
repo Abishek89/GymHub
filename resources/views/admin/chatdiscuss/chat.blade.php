@@ -92,7 +92,7 @@
                 </div>
                 <div class="user-avatar flex-shrink-0 ms-3">
                   <div class="avatar avatar-sm">
-                    <img src="/adminsection/assets/img/avatars/1.png" alt="Avatar" class="rounded-circle">
+                    <i class="fa fa-user-circle fa-xl" aria-hidden="true"></i>
                   </div>
                 </div>
               </div>

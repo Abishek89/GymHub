@@ -64,22 +64,24 @@
                         <h2>CALCULATE YOUR BMI</h2>
                     </div>
                     <div class="chart-calculate-form">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
-                            viverra maecenas accumsan lacus vel facilisis.</p>
+                        <form method="post" action="{{ route('bmi.calculate') }}">
+                            @csrf
+                        <p>@if (isset($bmi))
+                            <p>Your BMI is: {{ $bmi }}</p>
+                        @endif</p>
                             <form action="#">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <input type="text" placeholder="Height / cm">
+                                        <input type="text" placeholder="Height / cm" value="{{ old('height') }}" name="height">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" placeholder="Weight / kg">
+                                        <input type="text" placeholder="Weight / kg" value="{{ old('weight') }}" name="weight">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" placeholder="Age">
+                                        <input type="text" placeholder="Age" value="{{ old('age') }}" name="age">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" placeholder="Sex">
+                                        <input type="text" placeholder="Sex" name="sex">
                                     </div>
                                     <div class="col-lg-12">
                                         <button type="submit">Calculate</button>

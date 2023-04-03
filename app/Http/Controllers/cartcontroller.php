@@ -69,4 +69,10 @@ function ship(Request $request){
 
 }
 
+public function adminorderdetails(){
+    $order = Order::where('status',false)->get();
+    return view('admin.orderdetails.adminorderdetails',compact('order'));
+
+}
+
 }

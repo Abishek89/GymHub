@@ -112,15 +112,10 @@
                             @endif</span>
                         </div>
                         <ul>
-                            <li>Unlimited equipments @if (
-                                $plan->equipment==1)
+                            <li>Refundable @if (
+                                $plan->refundable==1)
                                 ✅
                                 @else ❌
-                            @endif</li>
-                            <li>Personal trainer @if (
-                                $plan->trainer==1)
-                                ✅   
-                            @else ❌ 
                             @endif</li>
                             <li>Admission Fee @if (
                                 $plan->admission==1)
@@ -131,7 +126,8 @@
                             </li>
                         </ul>
                         @auth
-                        <a href="{{ url('/enrollform') }}" class="primary-btn pricing-btn" >Enroll now</a>
+                        {{-- <a href="{{ route('',$plan->id) }}" class="primary-btn pricing-btn" >Enroll now</a> --}}
+                        <a href="{{ route('trainerselection',$plan->id) }}" class="primary-btn pricing-btn" >Enroll now</a>
                         
                         @endauth
                     </div>

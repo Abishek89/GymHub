@@ -162,11 +162,7 @@ class FrontendController extends Controller
 
     }
 
-    public function amminorderdetails(){
-        $order = Order::where('status',false)->get();
-        return view('admin.orderdetails.adminorderdetails',compact('order'));
-
-    }
+    
 
     // public function enroll($id){
     //     $plan=Plan::find($id);
@@ -244,7 +240,7 @@ class FrontendController extends Controller
         $order->ward = $request->ward;
         $order->Apartmentno = $request->appartment;
         $order->zip = $request->postal;
-        $order->email = Auth::user()->id;
+        $order->email = Auth::user()->email;
         $order->phone = $request->phone;
         $order->save();
 

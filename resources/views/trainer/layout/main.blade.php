@@ -145,7 +145,7 @@
       <span class="menu-header-text">Profile &amp; Settings</span>
     </li>
     <li class="menu-item">
-      <a href="#" class="menu-link">
+      <a href="{{ route('trainerprofile') }}" class="menu-link">
         <i class="menu-icon tf-icons bx bx-user"></i>
         <div data-i18n="User Profile">Use Profile</div>
       </a>
@@ -157,12 +157,12 @@
       </a>
       <ul class="menu-sub">
         <li class="menu-item">
-          <a href="#" class="menu-link">
+          <a href="{{ route('profileedit') }}" class="menu-link">
             <div data-i18n="Edit Profile"> Edit Profile</div>
           </a>
         </li>
         <li class="menu-item">
-          <a href="#" class="menu-link">
+          <a href="{{ route('trainerpass') }}" class="menu-link">
             <div data-i18n="Change password">Change Password</div>
           </a>
         </li>
@@ -223,10 +223,14 @@
           <!--/ Style Switcher -->
 
           <!-- User -->
+          @php
+          $trainer=DB::table('trainer')->get();
+          @endphp
           <li class="nav-item navbar-dropdown dropdown-user dropdown">
+            @foreach ($trainer as $trainer)
             <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
               <div class="avatar avatar-online">
-                <img src="/adminsection/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle">
+                <img src="{{ URL::to('uploads/trainers/'.$trainer->image) }}" alt class="w-px-30 h-auto rounded-circle">
               </div>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
@@ -235,7 +239,7 @@
                   <div class="d-flex">
                     <div class="flex-shrink-0 me-3">
                       <div class="avatar avatar-online">
-                        <img src="/adminsection/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle">
+                        <img src="{{ URL::to('uploads/trainers/'.$trainer->image) }}" alt class="w-px-30 h-auto rounded-circle">
                       </div>
                     </div>
                     <div class="flex-grow-1">
@@ -249,13 +253,13 @@
                 <div class="dropdown-divider"></div>
               </li>
               <li>
-                <a class="dropdown-item" href="{{ route('profile') }}">
+                <a class="dropdown-item" href="{{ route('trainerprofile') }}">
                   <i class="bx bx-user me-2"></i>
                   <span class="align-middle">My Profile</span>
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="{{ route('edit') }}">
+                <a class="dropdown-item" href="{{ route('profileedit') }}">
                   <i class="bx bx-cog me-2"></i>
                   <span class="align-middle">Settings</span>
                 </a>
@@ -276,6 +280,7 @@
 
               </li>
             </ul>
+            @endforeach
           </li>
           <!--/ User -->
           

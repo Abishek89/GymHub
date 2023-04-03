@@ -88,16 +88,19 @@
                                         <div class="CHATING_SENDER CHATING_RECEIVEr">
                                             <div class="SEND_SMS_VIEW">
                                             <P><?php echo e($chat->message); ?></P>
+                                            <p><?php echo e($chat->created_at); ?></p>
                                             </div>
                                             </div>
                                         <?php else: ?>
                                         <div class="CHATING_SENDER">
                                             <div class="SEND_SMS_VIEW">
                                             <P><?php echo e($chat->message); ?></P>
+                                            <p><?php echo e($chat->created_at); ?></p>
                                             </div>
                                             </div>
                                         <?php endif; ?>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
+                                        
                                         </div>
                                         <div class="chat-history-footer">
                                             <form class=" d-flex justify-content-between align-items-center" action="<?php echo e(route('admin.storemessage')); ?>" method="POST">
@@ -168,8 +171,7 @@
                     <div class="fa-logo">
                         <a href="#"><img src="/landbootstrap/img/logo.png" alt=""></a>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore dolore magna aliqua endisse ultrices gravida lorem.</p>
+                    <p>GymHub was established in 2018 in Itahari. Since its inception, we have been making a positive impact on the lives of many individuals in Nepal through our passion for exercise. </p>
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6">
@@ -177,8 +179,8 @@
                     <h4>Useful links</h4>
                     <ul>
                         <li><a href="#">About</a></li>
-                        <li><a href="#">Classes</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Team</a></li>
                     </ul>
                 </div>
             </div>
@@ -186,9 +188,9 @@
                 <div class="fs-widget">
                     <h4>Support</h4>
                     <ul>
-                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Home</a></li>
                         <li><a href="#">My account</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Feedback</a></li>
                     </ul>
                 </div>
             </div>
@@ -196,18 +198,10 @@
                 <div class="fs-widget">
                     <h4>Tips & Guides</h4>
                     <div class="fw-recent">
-                        <h6><a href="#">Physical fitness may help prevent depression, anxiety</a></h6>
-                        <ul>
-                            <li>3 min read</li>
-                            <li>20 Comment</li>
-                        </ul>
+                        <h6>Physical fitness may help prevent depression, anxiety</h6>
                     </div>
                     <div class="fw-recent">
-                        <h6><a href="#">Fitness: The best exercise to lose belly fat and tone up...</a></h6>
-                        <ul>
-                            <li>3 min read</li>
-                            <li>20 Comment</li>
-                        </ul>
+                        <h6>Fitness: The best exercise to lose belly fat and tone up</h6>
                     </div>
                 </div>
             </div>
